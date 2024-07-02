@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Services\Auth\Facades\JWT;
 use Tests\TestCase;
 
 class LoggedinUserControllerTest extends TestCase
@@ -35,5 +36,21 @@ class LoggedinUserControllerTest extends TestCase
 
         $response->assertUnprocessable();
         $response->assertJsonValidationErrors(['email']);
+    }
+
+    public function test_users_can_be_logged_out(): void
+    {
+        $user = User::factory()->create();
+
+        $token = JWT::encode(['user_uuid' => $user->uuid]);
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer '.$token,
+        ])->getJson('/api/v1/user/logout');
+
+        $response->assertNoContent();
+
+        $this->assertFalse(JWT::validate($token));
+
     }
 }

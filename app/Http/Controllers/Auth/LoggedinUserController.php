@@ -4,35 +4,32 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Services\Auth\Facades\JWT;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Lcobucci\JWT\JwtFacade;
-use Lcobucci\JWT\Signer\Key\InMemory;
-use Lcobucci\JWT\Signer\Rsa\Sha256;
-use Lcobucci\JWT\Token\Builder;
 
 class LoggedinUserController extends Controller
 {
-    public function store(LoginRequest $request)
+    public function store(LoginRequest $request): JsonResponse
     {
         $request->authenticate();
-
-        $key = InMemory::file(config('jwt.keys.private'));
-
-        $token = (new JwtFacade())->issue(
-            new Sha256(),
-            $key,
-            fn (Builder $builder) => $builder->issuedBy(config('app.url'))
-                ->permittedFor(config('app.url'))
-                ->issuedAt(new \DateTimeImmutable())
-                ->expiresAt(new \DateTimeImmutable('+1 hour'))
-                ->withClaim('uuid', Auth::user()->uuid)
-        );
 
         return response()->json([
             'success' => 1,
             'data' => [
-                'token' => $token->toString(),
+                'token' => JWT::encode(['user_uuid' => Auth::user()->uuid]),
             ],
         ]);
+    }
+
+    public function destroy(Request $request): Response
+    {
+        $token = $request->bearerToken();
+
+        JWT::invalidate($token);
+
+        return response()->noContent();
     }
 }

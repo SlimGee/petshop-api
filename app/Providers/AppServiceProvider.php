@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Services\Auth\Facades\JWT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -21,13 +23,23 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Auth::viaRequest('api-jwt', function (Request $request) {
-            try {
-                return Auth::guard('api')->user();
+        Auth::resolved(function ($auth) {
+            $auth->viaRequest('jwt', function (Request $request) {
+                try {
+                    $token = $request->bearerToken();
 
-            } catch (\Throwable $e) {
-                return null;
-            }
+                    if (empty($token)) {
+                        return;
+                    }
+
+                    $payload = JWT::decode($token, true);
+
+                    return User::where('uuid', $payload['user_uuid'])->firstOrFail();
+
+                } catch (\Throwable $e) {
+                    return;
+                }
+            });
         });
     }
 }

@@ -29,7 +29,7 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    public function authenticate()
+    public function authenticate(): void
     {
         if (! Auth::attempt($this->safe()->only(['email', 'password']))) {
             throw ValidationException::withMessages([

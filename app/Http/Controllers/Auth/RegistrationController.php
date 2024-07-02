@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistrationController extends Controller
 {
-    public function store(StoreUserRequest $request)
+    public function store(StoreUserRequest $request): UserResource
     {
         $data = $request->validated();
 

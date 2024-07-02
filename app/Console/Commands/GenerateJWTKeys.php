@@ -24,14 +24,26 @@ class GenerateJWTKeys extends Command
     /**
      * Execute the console command.
      */
-    public function handle(Env $envService)
+    public function handle(Env $envService): int
     {
         $pair = openssl_pkey_new([
             'private_key_bits' => 2048,
             'private_key_type' => OPENSSL_KEYTYPE_RSA,
         ]);
 
-        $publicKey = openssl_pkey_get_details($pair)['key'];
+        if (! $pair) {
+            $this->error('Failed to generate JWT keys.');
+
+            return self::FAILURE;
+        }
+
+        $publicKey = openssl_pkey_get_details($pair)['key'] ?? false;
+
+        if (! $publicKey) {
+            $this->error('Failed to generate JWT keys.');
+
+            return self::FAILURE;
+        }
 
         openssl_pkey_export($pair, $privateKey);
 
@@ -42,5 +54,8 @@ class GenerateJWTKeys extends Command
         $envService->set('JWT_PRIVATE_KEY', 'jwt-private.key');
 
         $this->info('JWT keys generated.');
+
+        return self::SUCCESS;
+
     }
 }
