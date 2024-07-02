@@ -11,7 +11,7 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware('auth:api')->group(function () {
         Route::get('/user/logout', [LoggedinUserController::class, 'destroy'])->name('logout');
-        Route::get('/user', [UserController::class, 'show'])->name('user');
+        Route::singleton('user', UserController::class)->destroyable();
     });
 
 });

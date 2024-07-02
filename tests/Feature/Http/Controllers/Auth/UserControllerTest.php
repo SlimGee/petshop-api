@@ -26,4 +26,18 @@ class UserControllerTest extends TestCase
         $this->assertArrayHasKey('uuid', $response->json('data'));
         $this->assertEquals($user->uuid, $response->json('data.uuid'));
     }
+
+    public function test_can_delete_user_account(): void
+    {
+        $user = User::factory()->create();
+        $token = JWT::encode(['user_uuid' => $user->uuid]);
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer '.$token,
+        ])->deleteJson('/api/v1/user');
+
+        $response->assertNoContent();
+
+        $this->assertModelMissing($user);
+    }
 }
