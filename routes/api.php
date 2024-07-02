@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetTokenController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Main\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -22,4 +23,5 @@ Route::prefix('v1')->group(function () {
         Route::singleton('user', UserController::class)->destroyable();
     });
 
+    Route::resource('main/blog', PostController::class)->only(['index', 'show']);
 });
