@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\PasswordResetTokenController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Main\PostController;
+use App\Http\Controllers\Main\PromotionController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -24,4 +25,5 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::resource('main/blog', PostController::class)->only(['index', 'show']);
+    Route::get('/main/promotions', [PromotionController::class, 'index'])->name('promotions.index');
 });

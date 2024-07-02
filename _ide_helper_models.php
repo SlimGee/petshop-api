@@ -20,7 +20,7 @@ namespace App\Models{
  * @property string $title
  * @property string $slug
  * @property string $content
- * @property string $metadata
+ * @property array $metadata
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Database\Factories\PostFactory factory($count = null, $state = [])
@@ -37,6 +37,32 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereUuid($value)
  */
 	class Post extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $uuid
+ * @property string $title
+ * @property string $content
+ * @property array $metadata
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\PromotionFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereMetadata($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUuid($value)
+ */
+	class Promotion extends \Eloquent {}
 }
 
 namespace App\Models{
