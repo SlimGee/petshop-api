@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function show(Request $request)
+    public function show(Request $request): UserResource
     {
-        return response()->json([
-            'success' => 1,
-            'data' => [
-                'user' => $request->user(),
-            ],
-        ]);
+        return new UserResource($request->user());
     }
 }
