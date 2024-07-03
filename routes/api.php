@@ -9,6 +9,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Main\PostController;
 use App\Http\Controllers\Main\PromotionController;
+use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,11 +35,15 @@ Route::prefix('v1')->group(function () {
 
         Route::resource('products', ProductController::class)->only('update', 'destroy');
         Route::post('/products/create', [ProductController::class, 'store'])->name('products.store');
+
+        Route::resource('order-statuses', OrderStatusController::class)->only('update', 'destroy');
+        Route::post('/order-statuses/create', [OrderStatusController::class, 'store'])->name('order-statuses.store');
     });
 
     Route::resource('categories', CategoryController::class)->only('show', 'index');
     Route::resource('brands', BrandController::class)->only('show', 'index');
     Route::resource('products', ProductController::class)->only('show', 'index');
+    Route::resource('order-statuses', OrderStatusController::class)->only('show', 'index');
 
     Route::resource('main/blog', PostController::class)->only(['index', 'show']);
     Route::get('/main/promotions', [PromotionController::class, 'index'])->name('promotions.index');
