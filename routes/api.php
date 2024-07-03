@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Main\PostController;
 use App\Http\Controllers\Main\PromotionController;
 use App\Http\Controllers\OrderStatusController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,9 @@ Route::prefix('v1')->group(function () {
 
         Route::resource('order-statuses', OrderStatusController::class)->only('update', 'destroy');
         Route::post('/order-statuses/create', [OrderStatusController::class, 'store'])->name('order-statuses.store');
+
+        Route::apiResource('payments', PaymentController::class)->except('store');
+        Route::post('/payments/create', [PaymentController::class, 'store'])->name('payments.store');
     });
 
     Route::resource('categories', CategoryController::class)->only('show', 'index');
