@@ -32,7 +32,7 @@ class CategoryControllerTest extends TestCase
 
     public function test_can_create_new_category(): void
     {
-        $response = $this->authenticated()->postJson('/api/v1/categories/create', [
+        $response = $this->authenticated()->postJson('/api/v1/category/create', [
             'title' => $this->faker->sentence,
         ]);
 

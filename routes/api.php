@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetTokenController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Main\PostController;
 use App\Http\Controllers\Main\PromotionController;
@@ -25,10 +26,15 @@ Route::prefix('v1')->group(function () {
         Route::singleton('user', UserController::class)->destroyable();
 
         Route::apiResource('categories', CategoryController::class)->only('update', 'destroy');
-        Route::post('/categories/create', [CategoryController::class, 'store'])->name('categories.store');
+        Route::post('/category/create', [CategoryController::class, 'store'])->name('categories.store');
+
+        Route::apiResource('brands', BrandController::class)->only('update', 'destroy');
+        Route::post('/brand/create', [BrandController::class, 'store'])->name('brands.store');
     });
 
     Route::resource('categories', CategoryController::class)->only('show', 'index');
+    Route::resource('brands', BrandController::class)->only('show', 'index');
+
     Route::resource('main/blog', PostController::class)->only(['index', 'show']);
     Route::get('/main/promotions', [PromotionController::class, 'index'])->name('promotions.index');
 });
