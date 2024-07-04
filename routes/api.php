@@ -54,7 +54,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/orders/create', [OrderController::class, 'store'])->name('orders.store');
         Route::get('/orders/dashboard', [OrderController::class, 'index'])->name('orders.dashboard');
         Route::get('/orders/shipment-locator', [ShipmentLocatorController::class, 'index'])->name('orders.shipment-locator');
-        Route::get('/order/{order}/download', DownloadInvoiceController::class)->name('order.download')->withoutMiddleware('auth:api');
+        Route::get('/order/{order}/download', DownloadInvoiceController::class)->name('order.download');
     });
 
     Route::resource('categories', CategoryController::class)->only('show', 'index');
