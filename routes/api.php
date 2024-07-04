@@ -9,6 +9,7 @@ use App\Http\Controllers\Main\PostController;
 use App\Http\Controllers\Main\PromotionController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DownloadInvoiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PaymentController;
@@ -53,6 +54,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/orders/create', [OrderController::class, 'store'])->name('orders.store');
         Route::get('/orders/dashboard', [OrderController::class, 'index'])->name('orders.dashboard');
         Route::get('/orders/shipment-locator', [ShipmentLocatorController::class, 'index'])->name('orders.shipment-locator');
+        Route::get('/order/{order}/download', DownloadInvoiceController::class)->name('order.download')->withoutMiddleware('auth:api');
     });
 
     Route::resource('categories', CategoryController::class)->only('show', 'index');
