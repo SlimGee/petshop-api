@@ -23,9 +23,9 @@ class StorePaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type' => 'required|string|in:'.collect(PaymentType::cases())->pluck('value')->join(','),
+            'type' => 'required|string|in:' . collect(PaymentType::cases())->pluck('value')->join(','),
             'details' => 'required|array',
-            ...PaymentType::from($this->input('type'))->validation(),
+            ...PaymentType::from($this->input('type', PaymentType::BANK_TRANSFER->value))->validation(),
         ];
     }
 }

@@ -64,34 +64,6 @@ namespace App\Models{
  * 
  *
  * @property int $id
- * @property string $uuid
- * @property string $name
- * @property string $path
- * @property string $size
- * @property string $type
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Database\Factories\FileFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|File newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|File newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|File query()
- * @method static \Illuminate\Database\Eloquent\Builder|File whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|File whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|File whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|File wherePath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|File whereSize($value)
- * @method static \Illuminate\Database\Eloquent\Builder|File whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|File whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|File whereUuid($value)
- */
-	class File extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * 
- *
- * @property int $id
  * @property int $user_id
  * @property int $order_status_id
  * @property int $payment_id
@@ -313,24 +285,14 @@ namespace App\Models{
 	class User extends \Eloquent {}
 }
 
-namespace App\Services\Auth\Storage\Eloquent{
+namespace App\Services\Auth\Models{
 /**
  * 
  *
- * @property int $id
- * @property string $identifier
- * @property \Illuminate\Support\Carbon|null $expires_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Entry newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Entry newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Entry query()
- * @method static \Illuminate\Database\Eloquent\Builder|Entry whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entry whereExpiresAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entry whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entry whereIdentifier($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entry whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Token newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Token newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Token query()
  */
-	class Entry extends \Eloquent {}
+	class Token extends \Eloquent {}
 }
 
