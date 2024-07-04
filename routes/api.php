@@ -13,6 +13,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserOrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -27,7 +28,9 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware('auth:api')->group(function () {
         Route::get('/user/logout', [LoggedinUserController::class, 'destroy'])->name('logout');
+
         Route::singleton('user', UserController::class)->destroyable();
+        Route::get('/user/orders', [UserOrderController::class, 'index'])->name('user.orders');
 
         Route::apiResource('categories', CategoryController::class)->only('update', 'destroy');
         Route::post('/category/create', [CategoryController::class, 'store'])->name('categories.store');
