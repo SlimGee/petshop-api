@@ -54,7 +54,7 @@ class CategoryControllerTest extends TestCase
     {
         $category = Category::factory()->create();
 
-        $response = $this->getJson("/api/v1/categories/{$category->uuid}");
+        $response = $this->getJson("/api/v1/category/{$category->uuid}");
 
         $response->assertOk();
 
@@ -74,7 +74,7 @@ class CategoryControllerTest extends TestCase
     {
         $category = Category::factory()->create();
 
-        $response = $this->authenticated()->putJson("/api/v1/categories/{$category->uuid}", [
+        $response = $this->authenticated()->putJson("/api/v1/category/{$category->uuid}", [
             'title' => $this->faker->sentence,
         ]);
 
@@ -97,7 +97,7 @@ class CategoryControllerTest extends TestCase
     public function test_can_delete_category(): void
     {
         $category = Category::factory()->create();
-        $response = $this->authenticated()->deleteJson("/api/v1/categories/{$category->uuid}");
+        $response = $this->authenticated()->deleteJson("/api/v1/category/{$category->uuid}");
 
         $response->assertNoContent();
 

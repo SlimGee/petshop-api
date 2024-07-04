@@ -60,7 +60,7 @@ class BrandControllerTest extends TestCase
     {
         $brand = Brand::factory()->create();
 
-        $response = $this->getJson("/api/v1/brands/{$brand->uuid}");
+        $response = $this->getJson("/api/v1/brand/{$brand->uuid}");
 
         $response->assertOk();
 
@@ -82,7 +82,7 @@ class BrandControllerTest extends TestCase
     {
         $brand = Brand::factory()->create();
 
-        $response = $this->authenticated()->patchJson("/api/v1/brands/{$brand->uuid}", [
+        $response = $this->authenticated()->patchJson("/api/v1/brand/{$brand->uuid}", [
             'title' => $this->faker->word,
         ]);
 
@@ -95,7 +95,7 @@ class BrandControllerTest extends TestCase
     {
         $brand = Brand::factory()->create();
 
-        $response = $this->authenticated()->deleteJson("/api/v1/brands/{$brand->uuid}");
+        $response = $this->authenticated()->deleteJson("/api/v1/brand/{$brand->uuid}");
 
         $response->assertNoContent();
 

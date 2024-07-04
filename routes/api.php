@@ -46,7 +46,8 @@ Route::prefix('v1')->group(function () {
         Route::resource('order-status', OrderStatusController::class)->only('update', 'destroy');
         Route::post('/order-statuses/create', [OrderStatusController::class, 'store'])->name('order-statuses.store');
 
-        Route::apiResource('payment', PaymentController::class)->except('store');
+        Route::apiResource('payment', PaymentController::class)->except('store', 'index');
+        Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
         Route::post('/payments/create', [PaymentController::class, 'store'])->name('payments.store');
 
         Route::apiResource('order', OrderController::class)->except('store', 'index');

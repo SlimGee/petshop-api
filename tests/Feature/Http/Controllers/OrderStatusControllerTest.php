@@ -25,7 +25,6 @@ class OrderStatusControllerTest extends TestCase
                 ],
             ],
         ]);
-
     }
 
     public function test_can_create_new_order_status(): void
@@ -44,7 +43,7 @@ class OrderStatusControllerTest extends TestCase
     {
         $status = OrderStatus::factory()->create();
 
-        $response = $this->getJson("/api/v1/order-statuses/{$status->uuid}");
+        $response = $this->getJson("/api/v1/order-status/{$status->uuid}");
 
         $response->assertOk();
 
@@ -56,7 +55,7 @@ class OrderStatusControllerTest extends TestCase
         $status = OrderStatus::factory()->create();
         $data = OrderStatus::factory()->make()->toArray();
 
-        $response = $this->authenticated()->patchJson("/api/v1/order-statuses/{$status->uuid}", $data);
+        $response = $this->authenticated()->patchJson("/api/v1/order-status/{$status->uuid}", $data);
 
         $response->assertOk();
 
@@ -68,7 +67,7 @@ class OrderStatusControllerTest extends TestCase
     {
         $status = OrderStatus::factory()->create();
 
-        $response = $this->authenticated()->deleteJson("/api/v1/order-statuses/{$status->uuid}");
+        $response = $this->authenticated()->deleteJson("/api/v1/order-status/{$status->uuid}");
 
         $response->assertNoContent();
 

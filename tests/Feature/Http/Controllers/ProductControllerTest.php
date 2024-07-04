@@ -49,12 +49,11 @@ class ProductControllerTest extends TestCase
     {
         $product = Product::factory()->create();
 
-        $response = $this->getJson("/api/v1/products/{$product->uuid}");
+        $response = $this->getJson("/api/v1/product/{$product->uuid}");
 
         $response->assertOk();
 
         $this->assertEquals($product->title, $response->json('data.title'));
-
     }
 
     public function test_can_update_product(): void
@@ -62,7 +61,7 @@ class ProductControllerTest extends TestCase
         $product = Product::factory()->create();
         $data = Product::factory()->make()->toArray();
 
-        $response = $this->authenticated()->putJson("/api/v1/products/{$product->uuid}", $data);
+        $response = $this->authenticated()->putJson("/api/v1/product/{$product->uuid}", $data);
 
         $response->assertOk();
 
@@ -73,7 +72,7 @@ class ProductControllerTest extends TestCase
     public function test_can_delete_product(): void
     {
         $product = Product::factory()->create();
-        $response = $this->authenticated()->deleteJson("/api/v1/products/{$product->uuid}");
+        $response = $this->authenticated()->deleteJson("/api/v1/product/{$product->uuid}");
         $response->assertNoContent();
         $this->assertSoftDeleted($product);
     }

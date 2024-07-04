@@ -35,7 +35,7 @@ class PaymentControllerTest extends TestCase
     {
         $payment = Payment::factory()->create();
 
-        $response = $this->authenticated()->getJson("/api/v1/payments/{$payment->uuid}");
+        $response = $this->authenticated()->getJson("/api/v1/payment/{$payment->uuid}");
 
         $response->assertOk();
 
@@ -47,7 +47,7 @@ class PaymentControllerTest extends TestCase
         $payment = Payment::factory()->create();
         $data = Payment::factory()->make()->toArray();
 
-        $response = $this->authenticated()->patchJson("/api/v1/payments/{$payment->uuid}", $data);
+        $response = $this->authenticated()->patchJson("/api/v1/payment/{$payment->uuid}", $data);
 
         $response->assertOk();
     }
@@ -56,7 +56,7 @@ class PaymentControllerTest extends TestCase
     {
         $payment = Payment::factory()->create();
 
-        $response = $this->authenticated()->deleteJson("/api/v1/payments/{$payment->uuid}");
+        $response = $this->authenticated()->deleteJson("/api/v1/payment/{$payment->uuid}");
 
         $response->assertNoContent();
         $this->assertModelMissing($payment);
