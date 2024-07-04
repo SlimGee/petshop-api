@@ -34,19 +34,19 @@ Route::prefix('v1')->group(function () {
         Route::singleton('user', UserController::class)->destroyable();
         Route::get('/user/orders', [UserOrderController::class, 'index'])->name('user.orders');
 
-        Route::apiResource('categories', CategoryController::class)->only('update', 'destroy');
+        Route::apiResource('category', CategoryController::class)->only('update', 'destroy');
         Route::post('/category/create', [CategoryController::class, 'store'])->name('categories.store');
 
-        Route::apiResource('brands', BrandController::class)->only('update', 'destroy');
+        Route::apiResource('brand', BrandController::class)->only('update', 'destroy');
         Route::post('/brand/create', [BrandController::class, 'store'])->name('brands.store');
 
-        Route::resource('products', ProductController::class)->only('update', 'destroy');
+        Route::resource('product', ProductController::class)->only('update', 'destroy');
         Route::post('/products/create', [ProductController::class, 'store'])->name('products.store');
 
-        Route::resource('order-statuses', OrderStatusController::class)->only('update', 'destroy');
+        Route::resource('order-status', OrderStatusController::class)->only('update', 'destroy');
         Route::post('/order-statuses/create', [OrderStatusController::class, 'store'])->name('order-statuses.store');
 
-        Route::apiResource('payments', PaymentController::class)->except('store');
+        Route::apiResource('payment', PaymentController::class)->except('store');
         Route::post('/payments/create', [PaymentController::class, 'store'])->name('payments.store');
 
         Route::apiResource('order', OrderController::class)->except('store', 'index');
@@ -57,10 +57,17 @@ Route::prefix('v1')->group(function () {
         Route::get('/order/{order}/download', DownloadInvoiceController::class)->name('order.download');
     });
 
-    Route::resource('categories', CategoryController::class)->only('show', 'index');
-    Route::resource('brands', BrandController::class)->only('show', 'index');
-    Route::resource('products', ProductController::class)->only('show', 'index');
-    Route::resource('order-statuses', OrderStatusController::class)->only('show', 'index');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/category/{category}', [CategoryController::class, 'show'])->name('category.show');
+
+    Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
+    Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show');
+
+    Route::get('/products', [ProductController::class, 'index'])->name('products.show');
+    Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+
+    Route::get('/order-statuses', [OrderStatusController::class, 'index'])->name('order-statuses.index');
+    Route::get('/order-status/{order_status}', [OrderStatusController::class, 'show'])->name('order-status.show');
 
     Route::resource('main/blog', PostController::class)->only(['index', 'show']);
     Route::get('/main/promotions', [PromotionController::class, 'index'])->name('promotions.index');
