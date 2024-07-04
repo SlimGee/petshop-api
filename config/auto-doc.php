@@ -76,7 +76,7 @@ return [
     'security' => '',
     'security_drivers' => [
         'jwt' => [
-            'type' => 'apiKey',
+            'type' => 'Bearer',
             'name' => 'Authorization',
             'in' => 'header',
         ],

@@ -1,12 +1,9 @@
 <?php
 
-use App\Exceptions\ValidationException;
 use App\Http\Middleware\RequireJson;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException as DefaultValidationException;
 use RonasIT\Support\AutoDoc\Http\Middleware\AutoDocMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -21,15 +18,5 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('api', RequireJson::class);
         $middleware->append(AutoDocMiddleware::class);
     })
-    ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->render(function (DefaultValidationException $exception, Request $request) {
-            if (!$request->wantsJson()) {
-                return null;
-            }
-
-            throw ValidationException::withMessages(
-                $exception->validator->getMessageBag()->getMessages()
-            );
-        });
-    })
+    ->withExceptions(function (Exceptions $exceptions) {})
     ->create();

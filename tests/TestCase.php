@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 
 abstract class TestCase extends BaseTestCase
 {
-    use RefreshDatabase, \RonasIT\Support\AutoDoc\Tests\AutoDocTestCaseTrait, WithFaker;
+    use RefreshDatabase, WithFaker;
 
     public function authenticated(): self
     {

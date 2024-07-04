@@ -32,7 +32,7 @@
     "/api/v1/user/login": {
       "post": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/x-www-form-urlencoded",
@@ -59,7 +59,7 @@
               "example": {
                 "success": 1,
                 "data": {
-                  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjAxMjY5NDEsIm5iZiI6MTcyMDEyNjk0MSwiZXhwIjoxNzIwMTMwNTQxLCJpc3MiOiJodHRwOi8vcGV0c2hvcC1hcGkudGVzdCIsImF1ZCI6Imh0dHA6Ly9wZXRzaG9wLWFwaS50ZXN0IiwianRpIjoiZDg3YjJiODEwMGY3MTUzNGVkODg3NDcxNDc5ZGRmNzciLCJ1c2VyX3V1aWQiOiI5YzcxZDM4OC1jNTAwLTRjYTctYjkwYi01ZjkzMDM2MmZjYTAifQ.C9mWZsLjxVPob9APk2aRq0g82aWZBghOamxIRK9xl-R2Jo7y5fB86u3ZQKu-W_T3jQ8SoYc10Zg0QMOABHilD6OdzRzPtHzT9ZhIO5R6x2gE6bxNy0Z7UjGU-iK00rKbBhysVT_x94E7sIH3u0YLgyDnfUAGzVVVbVeG2HaKKejFIwuND3-S3uripSmso0DQzHehgrfgP7j1O9CrSxwHtLt0Al4xu_0Ex0Ir_TH-1wg6wUMs9SwoSDhEb4qy4Zml1IhbA4BuUYtLuI93NEnzP0zteD-v0nfRlq9YqtDMTkY0wGL6D5fPJYR_-fGIk-pT1qBpPv3zZCaEQSIFEKUkIw"
+                  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MjAxMjg5MzIsIm5iZiI6MTcyMDEyODkzMiwiZXhwIjoxNzIwMTMyNTMyLCJpc3MiOiJodHRwOi8vcGV0c2hvcC1hcGkudGVzdCIsImF1ZCI6Imh0dHA6Ly9wZXRzaG9wLWFwaS50ZXN0IiwianRpIjoiMDYzNDYyZmU0ZGYyOTUwYTYxZmU0ODE0Y2Y1NDU3ZjMiLCJ1c2VyX3V1aWQiOiI5YzcxZGY2NS1lZGFiLTQ3ZmItYmI3MC1jZGJmNjczY2Y2NmYifQ.VJaWUzJaWcOHY8FMV8ByXHf8F3-h9OwhR9e7cVRLv7Jp-miKFv05L9nMUUsWhNMTX8lChp3neUix8_qr7hCfvw8Hmv1WV3epqzwM1TJ7zjGzzG13OLbImzV1itzyA8OUsfvY7WO70oforLfE_OHkx6yyYtkfvDQLmS6WoABpvlL-ElQ1BxLzBXDCO2P7u70XJUbWtgU-PNGA6e-tCw1u9pKz9hLg1u3zu2iow4oY7Z4dwSflWAxkfWZZMIcLTniU8xJt1NrsMetVAmW0V_n0sRMwcl8u32lDtNu8GiusJO9GTW9vBPdnvFxMhQTn9VKt5Gb5PCKwwhweyNUn1ey_8g"
                 },
                 "to": 1,
                 "total": 1
@@ -71,15 +71,12 @@
             "description": "Unprocessable Content",
             "schema": {
               "example": {
-                "error": "There is a problem with the credentials provided.",
-                "success": false,
-                "data": [],
+                "message": "There is a problem with the credentials provided.",
                 "errors": {
                   "email": [
                     "There is a problem with the credentials provided."
                   ]
-                },
-                "trace": []
+                }
               },
               "$ref": "#/definitions/postApiv1userlogin422ResponseObject"
             }
@@ -88,13 +85,13 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": "login"
+        "summary": "Login to user account"
       }
     },
     "/api/v1/user/logout": {
       "get": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/json"
@@ -117,13 +114,13 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": ""
+        "summary": "Logout from user account"
       }
     },
     "/api/v1/user/forgot-password": {
       "post": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/json"
@@ -156,13 +153,13 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": ""
+        "summary": "Request a password reset token"
       }
     },
     "/api/v1/user/reset-password-token": {
       "post": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -195,13 +192,13 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": ""
+        "summary": "Reset user password with a token"
       }
     },
     "/api/v1/user/create": {
       "post": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -226,11 +223,11 @@
             "schema": {
               "example": {
                 "data": {
-                  "first_name": "Gene",
-                  "last_name": "Johns",
-                  "email": "green47@example.org",
-                  "address": "851 Prosacco Rapid\nAvishaven, WV 53782-0001",
-                  "avatar": "4ce60a6d-e7d7-3d03-87d7-b84d75c86df6"
+                  "first_name": "Ursula",
+                  "last_name": "Bruen",
+                  "email": "ubeier@example.net",
+                  "address": "819 Ritchie Springs\nElmerburgh, WY 84396",
+                  "avatar": "544e918a-7e03-3770-a2d8-d930d35bb08c"
                 },
                 "to": 5,
                 "total": 5
@@ -242,13 +239,13 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": "store user"
+        "summary": "Create user account"
       }
     },
     "/api/v1/user": {
       "get": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/json"
@@ -264,10 +261,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "email": "grimes.jonathan@example.net",
-                  "email_verified_at": "2024-07-04T21:02:22.000000Z",
-                  "created_at": "2024-07-04T21:02:22.000000Z",
-                  "updated_at": "2024-07-04T21:02:22.000000Z"
+                  "email": "emmerich.reanna@example.com",
+                  "email_verified_at": "2024-07-04T21:35:32.000000Z",
+                  "created_at": "2024-07-04T21:35:32.000000Z",
+                  "updated_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -279,11 +276,11 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": ""
+        "summary": "View user account"
       },
       "delete": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/json"
@@ -306,11 +303,11 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": ""
+        "summary": "Delete user account"
       },
       "put": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [
           "application/json"
@@ -336,10 +333,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "email": "tdare@gmail.com",
-                  "email_verified_at": "2024-07-04T21:02:22.000000Z",
-                  "created_at": "2024-07-04T21:02:22.000000Z",
-                  "updated_at": "2024-07-04T21:02:22.000000Z"
+                  "email": "tara90@bogan.org",
+                  "email_verified_at": "2024-07-04T21:35:32.000000Z",
+                  "created_at": "2024-07-04T21:35:32.000000Z",
+                  "updated_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -351,13 +348,13 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": "update user"
+        "summary": "Update user account"
       }
     },
     "/api/v1/user/orders": {
       "get": {
         "tags": [
-          "api"
+          "User"
         ],
         "consumes": [],
         "produces": [
@@ -373,192 +370,78 @@
                   {
                     "id": 1,
                     "user_id": 1,
-                    "order_status_id": 5,
+                    "order_status_id": 2,
                     "payment_id": 1,
-                    "uuid": "9c71d389-5819-4f57-a818-e74114e43e27",
+                    "uuid": "9c71df66-90e6-487d-9f27-5294b56ae107",
                     "products": [
                       {
-                        "product": "9c71d389-41af-4e60-a953-7fb82684c190",
+                        "product": "9c71df66-7a4e-48e4-a4aa-e93512f3e431",
+                        "quantity": 2
+                      },
+                      {
+                        "product": "9c71df66-7ab5-47ac-a0c8-90c40dccd91c",
+                        "quantity": 1
+                      },
+                      {
+                        "product": "9c71df66-7b18-45fe-8860-6f08e9225259",
                         "quantity": 9
                       },
                       {
-                        "product": "9c71d389-4218-40a7-8361-40bd9695992b",
-                        "quantity": 5
+                        "product": "9c71df66-7b7b-4b65-82f4-c05f95a606ee",
+                        "quantity": 2
                       },
                       {
-                        "product": "9c71d389-427f-4dc1-954e-2f74e51bbfd9",
-                        "quantity": 4
-                      },
-                      {
-                        "product": "9c71d389-42e6-4924-941f-08253be37f9c",
-                        "quantity": 3
-                      },
-                      {
-                        "product": "9c71d389-434e-4977-8377-735c49c6992a",
-                        "quantity": 6
+                        "product": "9c71df66-7be5-468c-92d2-0897b5c5b997",
+                        "quantity": 8
                       }
                     ],
                     "address": {
-                      "billing": "5688 Jerde Inlet Apt. 684\nThadton, AZ 14572-0529",
-                      "shipping": "146 Spinka Plain\nSouth Ruthetown, SC 72196"
+                      "billing": "9129 Daron Center Apt. 856\nMayrachester, DE 01733",
+                      "shipping": "344 Freeman Courts\nSouth Lorineshire, AR 08563-5268"
                     },
                     "delivery_fee": null,
-                    "amount": 871.7,
+                    "amount": 822.44,
                     "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 2,
                     "user_id": 1,
-                    "order_status_id": 5,
+                    "order_status_id": 2,
                     "payment_id": 2,
-                    "uuid": "9c71d389-582e-4e03-a7d8-bccf11099b10",
+                    "uuid": "9c71df66-90fa-42e5-99d9-32699a66d107",
                     "products": [
                       {
-                        "product": "9c71d389-440a-4c2a-b431-eb9138b1dc99",
+                        "product": "9c71df66-7c9f-40c6-81f4-cec0a9c63b20",
                         "quantity": 8
                       },
                       {
-                        "product": "9c71d389-4471-444f-b7ab-d0befe5d4668",
+                        "product": "9c71df66-7d0a-40ca-bd43-23f446bee6d4",
                         "quantity": 9
                       },
                       {
-                        "product": "9c71d389-44d9-4906-8773-19b88f9edb63",
-                        "quantity": 8
-                      },
-                      {
-                        "product": "9c71d389-453f-48e2-bb44-e82b2a1ba873",
-                        "quantity": 1
-                      },
-                      {
-                        "product": "9c71d389-45a7-4c19-b486-1800255136e3",
-                        "quantity": 3
-                      }
-                    ],
-                    "address": {
-                      "billing": "251 Kiarra Trace\nLake Chelsey, ND 82251-7009",
-                      "shipping": "691 Helmer Islands Apt. 833\nAthenaport, VA 22407-8121"
-                    },
-                    "delivery_fee": null,
-                    "amount": 878.27,
-                    "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
-                  },
-                  {
-                    "id": 3,
-                    "user_id": 1,
-                    "order_status_id": 5,
-                    "payment_id": 3,
-                    "uuid": "9c71d389-5840-4cf5-9e38-9f3323ee520f",
-                    "products": [
-                      {
-                        "product": "9c71d389-4654-4213-a525-faac80fd6110",
-                        "quantity": 1
-                      },
-                      {
-                        "product": "9c71d389-46bb-4b26-8d8c-52c8f5fab665",
-                        "quantity": 3
-                      },
-                      {
-                        "product": "9c71d389-4722-498f-81ad-109f2d37f624",
-                        "quantity": 4
-                      },
-                      {
-                        "product": "9c71d389-4788-49f4-b67b-f7771133596f",
+                        "product": "9c71df66-7d6e-417b-a907-4edc217a976e",
                         "quantity": 2
                       },
                       {
-                        "product": "9c71d389-47f2-41d0-baac-08eec159b99b",
-                        "quantity": 5
-                      }
-                    ],
-                    "address": {
-                      "billing": "83334 Vicente Cliffs\nLake Ella, HI 85593",
-                      "shipping": "20506 Maybelle Cape Apt. 862\nKendramouth, NC 92658-8514"
-                    },
-                    "delivery_fee": null,
-                    "amount": 510.27,
-                    "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
-                  },
-                  {
-                    "id": 4,
-                    "user_id": 1,
-                    "order_status_id": 5,
-                    "payment_id": 4,
-                    "uuid": "9c71d389-5852-4d6f-bfee-90970c5e1e32",
-                    "products": [
-                      {
-                        "product": "9c71d389-4895-492f-b6ad-3afeca22a9a8",
-                        "quantity": 10
-                      },
-                      {
-                        "product": "9c71d389-48fc-44c6-916e-538081314429",
-                        "quantity": 5
-                      },
-                      {
-                        "product": "9c71d389-4961-4cdc-9259-9de4136d5e8b",
-                        "quantity": 1
-                      },
-                      {
-                        "product": "9c71d389-49ce-483f-a5d2-dcae768db5b2",
-                        "quantity": 6
-                      },
-                      {
-                        "product": "9c71d389-4a35-4e1b-852c-8810fbde45c0",
-                        "quantity": 5
-                      }
-                    ],
-                    "address": {
-                      "billing": "5951 Rath Summit\nSouth Marlene, DC 67256",
-                      "shipping": "14681 Halvorson Estates Suite 403\nNew Jerelton, NH 28927"
-                    },
-                    "delivery_fee": null,
-                    "amount": 300.05,
-                    "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
-                  },
-                  {
-                    "id": 5,
-                    "user_id": 1,
-                    "order_status_id": 5,
-                    "payment_id": 5,
-                    "uuid": "9c71d389-5864-47b8-b591-3f966fb64a82",
-                    "products": [
-                      {
-                        "product": "9c71d389-4adc-4030-9045-8f5d76d1c2a9",
-                        "quantity": 7
-                      },
-                      {
-                        "product": "9c71d389-4b41-4570-aecb-0f35ab7b70ad",
-                        "quantity": 1
-                      },
-                      {
-                        "product": "9c71d389-4ba8-4e73-85ad-b6522eb86d66",
-                        "quantity": 8
-                      },
-                      {
-                        "product": "9c71d389-4c0f-4b53-9bb1-72d32cd0257a",
+                        "product": "9c71df66-7dd2-4196-be6e-230eed9152c6",
                         "quantity": 9
                       },
                       {
-                        "product": "9c71d389-4c76-458e-884f-5d9345450515",
-                        "quantity": 7
+                        "product": "9c71df66-7e3a-44ad-b4a2-57f5f50cc15c",
+                        "quantity": 10
                       }
                     ],
                     "address": {
-                      "billing": "20256 Oral Shoal Suite 953\nRohanhaven, MI 92925-8138",
-                      "shipping": "942 Torp Forest\nLake Arielle, SC 91553-4800"
+                      "billing": "49077 Kuhlman Heights\nAlessiachester, MD 31306-0967",
+                      "shipping": "41146 Barton Road Apt. 158\nSouth Lenna, NH 93508-3685"
                     },
                     "delivery_fee": null,
-                    "amount": 282.55,
+                    "amount": 650.32,
                     "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   }
                 ],
                 "links": {
@@ -601,13 +484,14 @@
           }
         },
         "security": [],
-        "description": ""
+        "description": "",
+        "summary": "Orders for user"
       }
     },
     "/api/v1/brands": {
       "get": {
         "tags": [
-          "api"
+          "Brand"
         ],
         "consumes": [
           "application/json"
@@ -624,43 +508,43 @@
                 "data": [
                   {
                     "id": 1,
-                    "uuid": "9c71d389-5fb6-4a97-a32d-a97f972ce373",
-                    "title": "atque",
-                    "slug": "atque",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "uuid": "9c71df66-988a-4e73-9275-efd5456d2398",
+                    "title": "quis",
+                    "slug": "quis",
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 2,
-                    "uuid": "9c71d389-5fdc-488c-850f-4d6e793f6692",
-                    "title": "maxime",
-                    "slug": "maxime",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "uuid": "9c71df66-98b2-4185-8e07-4050bfb42b1c",
+                    "title": "hic",
+                    "slug": "hic",
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 3,
-                    "uuid": "9c71d389-5ff8-4f92-ab9a-6a303b1f7cf6",
-                    "title": "quaerat",
-                    "slug": "quaerat",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "uuid": "9c71df66-98d3-4688-9b43-0b6edd9d95b6",
+                    "title": "rerum",
+                    "slug": "rerum",
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 4,
-                    "uuid": "9c71d389-6012-4e87-bd2c-e63233107630",
-                    "title": "ipsum",
-                    "slug": "ipsum",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "uuid": "9c71df66-98f4-49ea-86b3-a45ea9392392",
+                    "title": "aut",
+                    "slug": "aut",
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 5,
-                    "uuid": "9c71d389-602d-49fd-8798-7a8965f37c72",
-                    "title": "eveniet",
-                    "slug": "eveniet",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "uuid": "9c71df66-990f-4c7e-aadd-3dcce46bf8d2",
+                    "title": "odit",
+                    "slug": "odit",
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   }
                 ],
                 "links": {
@@ -708,13 +592,14 @@
           }
         },
         "security": [],
-        "description": ""
+        "description": "",
+        "summary": "List all brands"
       }
     },
     "/api/v1/brand/create": {
       "post": {
         "tags": [
-          "api"
+          "Brand"
         ],
         "consumes": [
           "application/json"
@@ -739,11 +624,11 @@
             "schema": {
               "example": {
                 "data": {
-                  "title": "sit",
-                  "uuid": "9c71d389-683c-4c6e-acad-41aac627aa9e",
-                  "slug": "sit",
-                  "updated_at": "2024-07-04T21:02:22.000000Z",
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "title": "sunt",
+                  "uuid": "9c71df66-a1bc-4334-8542-90a1ef0c7644",
+                  "slug": "sunt",
+                  "updated_at": "2024-07-04T21:35:32.000000Z",
+                  "created_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -755,13 +640,13 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": "store brand"
+        "summary": "Create new brand"
       }
     },
-    "/api/v1/brand/{brand}": {
+    "/api/v1/brand/{uuid}": {
       "get": {
         "tags": [
-          "api"
+          "Brand"
         ],
         "consumes": [
           "application/json"
@@ -772,7 +657,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "brand",
+            "name": "uuid",
             "description": "",
             "required": true,
             "type": "string"
@@ -785,10 +670,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d389-6b17-4ab8-90de-225d9522794d",
-                  "title": "sint",
-                  "slug": "sint",
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "uuid": "9c71df66-a4e0-4307-9038-6fd11867620f",
+                  "title": "ut",
+                  "slug": "ut",
+                  "created_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -802,7 +687,7 @@
       },
       "patch": {
         "tags": [
-          "api"
+          "Brand"
         ],
         "consumes": [
           "application/json"
@@ -813,7 +698,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "brand",
+            "name": "uuid",
             "description": "",
             "required": true,
             "type": "string"
@@ -835,10 +720,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d389-6e19-497f-ad78-1fe31df87f04",
-                  "title": "asperiores",
-                  "slug": "asperiores",
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "uuid": "9c71df66-a823-4902-b89c-7e14c6859a35",
+                  "title": "ut",
+                  "slug": "ut",
+                  "created_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -850,11 +735,11 @@
         "security": [],
         "description": "",
         "deprecated": false,
-        "summary": "update brand"
+        "summary": "Update the brand"
       },
       "delete": {
         "tags": [
-          "api"
+          "Brand"
         ],
         "consumes": [
           "application/json"
@@ -865,7 +750,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "brand",
+            "name": "uuid",
             "description": "",
             "required": true,
             "type": "string"
@@ -889,7 +774,7 @@
     "/api/v1/categories": {
       "get": {
         "tags": [
-          "api"
+          "Category"
         ],
         "consumes": [
           "application/json"
@@ -942,13 +827,14 @@
           }
         },
         "security": [],
-        "description": ""
+        "description": "",
+        "summary": "List all categories"
       }
     },
     "/api/v1/category/create": {
       "post": {
         "tags": [
-          "api"
+          "Category"
         ],
         "consumes": [
           "application/json"
@@ -973,11 +859,11 @@
             "schema": {
               "example": {
                 "data": {
-                  "title": "Adipisci dolore autem est aperiam accusantium minima autem.",
-                  "uuid": "9c71d389-7c11-44fd-af97-fa4e5a6a6a5b",
-                  "slug": "adipisci-dolore-autem-est-aperiam-accusantium-minima-autem",
-                  "updated_at": "2024-07-04T21:02:22.000000Z",
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "title": "Nihil necessitatibus et beatae occaecati quas sequi id quo.",
+                  "uuid": "9c71df66-b688-4c20-9872-2adf76a1722f",
+                  "slug": "nihil-necessitatibus-et-beatae-occaecati-quas-sequi-id-quo",
+                  "updated_at": "2024-07-04T21:35:32.000000Z",
+                  "created_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -1019,10 +905,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d389-7efa-42bd-8a41-5c31376c8911",
-                  "title": "Voluptas sed incidunt nobis dolores nisi qui.",
-                  "slug": "voluptas-sed-incidunt-nobis-dolores-nisi-qui",
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "uuid": "9c71df66-b96e-4569-8777-bbb8537f89c9",
+                  "title": "Perspiciatis cumque et hic dolores voluptatem soluta veritatis.",
+                  "slug": "perspiciatis-cumque-et-hic-dolores-voluptatem-soluta-veritatis",
+                  "created_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -1069,10 +955,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d389-8225-481c-81e4-25285a2e65e4",
-                  "title": "Officia perspiciatis dolorem et dolores libero magni ab.",
-                  "slug": "officia-perspiciatis-dolorem-et-dolores-libero-magni-ab",
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "uuid": "9c71df66-bc45-41ae-a61b-d81da793e3ef",
+                  "title": "Perspiciatis cumque sed odit.",
+                  "slug": "perspiciatis-cumque-sed-odit",
+                  "created_at": "2024-07-04T21:35:32.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -1140,68 +1026,68 @@
                 "data": [
                   {
                     "id": 1,
-                    "uuid": "9c71d389-8cfe-41ec-a033-be4eba86fa8f",
-                    "title": "Magnam porro assumenda accusantium aut iste.",
-                    "slug": "magnam-porro-assumenda-accusantium-aut-iste",
-                    "content": "Nihil ut molestiae voluptatem sapiente molestias. Molestias consequatur ducimus laboriosam ab.\n\nQuidem repellat rem ut. Saepe fugiat sunt tempore magnam quod repudiandae. Dolorum fuga exercitationem et nesciunt et dolorem neque cum.\n\nOmnis iusto iure rem molestiae velit. Vero ut tempora sit similique et dignissimos quam.",
+                    "uuid": "9c71df66-c65d-4b82-b4cc-be8a24c494d9",
+                    "title": "Laudantium voluptatem harum eos sit molestiae sint eius.",
+                    "slug": "laudantium-voluptatem-harum-eos-sit-molestiae-sint-eius",
+                    "content": "Necessitatibus eos sed ea ratione veniam a eligendi. At quia hic laborum dolor adipisci commodi vel. Illo molestiae aut ab eligendi distinctio quae consequuntur. Possimus esse et in nulla blanditiis.\n\nRepellendus id pariatur ut aut cum sequi amet. Name animi voluptatem ut alias modi. Hic rerum architecto ut pariatur dolores in et delectus. Animi quibusdam cum consequatur omnis magnam dignissimos.\n\nQuia ad reiciendis ex vel. Odit aspernatur mollitia nemo dolorem et aut. Veritatis nihil dolores eos quia.",
                     "metadata": {
-                      "author": "Lilyan Turner DVM",
-                      "views": 27
+                      "author": "Gerda Dooley",
+                      "views": 952
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 2,
-                    "uuid": "9c71d389-8d27-4b05-9e5f-312c979cb0b6",
-                    "title": "Architecto saepe deserunt quam.",
-                    "slug": "architecto-saepe-deserunt-quam",
-                    "content": "Sint ducimus perferendis est nihil at. Et officia aspernatur et non tenetur aut. Ut reiciendis veniam officia pariatur inventore. Culpa ex aut beatae sed repellat ullam cupiditate.\n\nAlias repellendus vero excepturi dolore enim nemo nesciunt necessitatibus. Qui quia accusantium recusandae excepturi voluptates. Sint possimus voluptas sed. Ea maiores sapiente consequatur doloribus veniam laudantium.\n\nDolores et ullam sit est quam commodi vitae similique. Ipsa vitae voluptatem quia minus. Provident rerum sequi consequatur molestiae esse non. Accusamus ipsa laborum magnam. Id modi sit aut rerum.",
+                    "uuid": "9c71df66-c688-4d6a-967c-25a2895272b7",
+                    "title": "Nemo eum similique provident amet unde.",
+                    "slug": "nemo-eum-similique-provident-amet-unde",
+                    "content": "Aut rem qui minus dolorum ab culpa sapiente. Dolorum omnis suscipit accusantium. Officiis voluptatibus nesciunt qui distinctio. Debitis asperiores nesciunt fuga eveniet.\n\nCulpa sit est consequatur quo cum ut ut. Ut quo dignissimos dicta aut quia suscipit. Ut illo expedita et quo et accusantium velit. Corrupti et sed sed rem tempore voluptatem.\n\nQuia asperiores delectus molestiae consequatur odit et. Et architecto amet et cumque accusantium iste. Expedita dolorum voluptatibus alias reiciendis tempora.",
                     "metadata": {
-                      "author": "Kathleen Stiedemann",
-                      "views": 155
+                      "author": "Prof. Ryley Fay",
+                      "views": 777
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 3,
-                    "uuid": "9c71d389-8d45-404b-bf18-c8fea7986241",
-                    "title": "Officiis excepturi illo sint tempora ut et sit.",
-                    "slug": "officiis-excepturi-illo-sint-tempora-ut-et-sit",
-                    "content": "Sint quidem et beatae voluptatum qui omnis. Esse doloremque ad maiores esse. Numquam eos placeat et.\n\nNobis ut est deserunt quaerat aut pariatur. Et necessitatibus possimus qui quo facilis sit. Ut aperiam sunt totam minima. Sed et nihil tempora quis necessitatibus tempore quasi.\n\nHarum assumenda aut at. Ut laudantium necessitatibus atque est et impedit eos qui. Dicta sed voluptates in odit velit dolor et incidunt. Eaque quam laborum animi. Ab illo corrupti eaque quae magni doloremque.",
+                    "uuid": "9c71df66-c6a5-431f-ac59-9850a332fe39",
+                    "title": "Libero corrupti incidunt labore.",
+                    "slug": "libero-corrupti-incidunt-labore",
+                    "content": "Id fugiat consequatur hic. Minima ipsa dolor in alias necessitatibus alias qui. Facilis a numquam aut autem.\n\nAut qui beatae tempora assumenda occaecati. Hic est ut eligendi esse fugiat. Sunt quibusdam dolore et voluptatum voluptas facere. Aliquid quas qui unde distinctio vel magni.\n\nNon doloremque perferendis ut ut voluptas odio sit. Mollitia et qui hic illo qui similique sed. Et dolorum quas non hic qui excepturi. Sit et ipsam animi dolores accusamus. Officia veritatis perspiciatis quia enim sed saepe ducimus.",
                     "metadata": {
-                      "author": "Sarina Abbott",
-                      "views": 1
+                      "author": "Kyla Koch",
+                      "views": 844
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 4,
-                    "uuid": "9c71d389-8d61-4729-87b4-ded32215f989",
-                    "title": "Iste eaque in totam ipsum aut ullam.",
-                    "slug": "iste-eaque-in-totam-ipsum-aut-ullam",
-                    "content": "Qui iste modi hic. Et rerum corporis sint mollitia debitis et ullam. Molestiae quod nostrum error ut sed.\n\nEnim cupiditate blanditiis option voluptatem rerum recusandae voluptates. Ut itaque molestiae qui et sit nihil. Facilis expedita magni qui ea perspiciatis ea quod. Sit quidem sequi est quis voluptatem odit velit.\n\nIllum voluptate quidem occaecati reiciendis tempore aut. Corporis sequi reprehenderit a molestiae beatae repellendus dolor. Sed libero necessitatibus doloremque.",
+                    "uuid": "9c71df66-c6c1-4cde-8b35-04eaafa6ee51",
+                    "title": "Natus itaque aliquid ullam deserunt expedita omnis laboriosam.",
+                    "slug": "natus-itaque-aliquid-ullam-deserunt-expedita-omnis-laboriosam",
+                    "content": "Odio possimus enim iste provident. Illum facere officiis incidunt repellendus dolor totam. Et sapiente reprehenderit ad provident aut quasi. Voluptate placeat vero laboriosam dolorem delectus laborum et esse.\n\nArchitecto est vel unde rerum omnis dolor nemo explicabo. Ratione facere qui molestias at iusto sit aut. Consequatur quae temporibus ipsum rerum. Velit minus libero modi perferendis voluptatem.\n\nQui in veritatis dignissimos. Aut odio asperiores ab sit a repudiandae. Earum et eligendi tempore eos. Nisi accusamus quidem eum voluptatibus et nulla repudiandae.",
                     "metadata": {
-                      "author": "Krystel Johnson",
-                      "views": 368
+                      "author": "Dedrick Torphy DVM",
+                      "views": 233
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 5,
-                    "uuid": "9c71d389-8d7c-4a51-b173-ae8497a615ac",
-                    "title": "Corrupti autem ipsum id excepturi provident vero iusto itaque.",
-                    "slug": "corrupti-autem-ipsum-id-excepturi-provident-vero-iusto-itaque",
-                    "content": "Sed nihil perferendis sed earum. Saepe autem molestias quia tempora harum aut. Molestiae commodi repudiandae minus enim incidunt aliquam.\n\nEa tempora id quae. Voluptatem explicabo dolores laborum laudantium ipsam accusantium ea. Nulla omnis deserunt consequatur nobis.\n\nQuia pariatur voluptatem eaque. Tempore non sint officia sunt debitis accusantium nemo. Dolorum adipisci debitis et debitis. Aut aut quisquam provident non.",
+                    "uuid": "9c71df66-c6dd-44f6-92c0-1ea775d60c89",
+                    "title": "Vitae earum et illum minima blanditiis.",
+                    "slug": "vitae-earum-et-illum-minima-blanditiis",
+                    "content": "Quia iste recusandae soluta quae quia voluptatem. Nemo recusandae atque maxime deserunt est ut et. Blanditiis eos provident nemo doloribus perspiciatis.\n\nCum omnis tenetur illo id aut ducimus perspiciatis. Ut architecto voluptatum asperiores est eos enim possimus. Esse omnis voluptatibus rem debitis distinctio possimus est. Molestias natus et debitis sint non.\n\nEnim perspiciatis et est distinctio rerum placeat. Sit nobis molestiae odit neque name voluptatem in.",
                     "metadata": {
-                      "author": "Bella Howell IV",
-                      "views": 483
+                      "author": "Dr. Darron Hegmann II",
+                      "views": 263
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   }
                 ],
                 "links": {
@@ -1279,10 +1165,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d389-936f-4b0b-a300-9a54fe32538e",
-                  "title": "Architecto vel et animi assumenda doloremque.",
-                  "slug": "architecto-vel-et-animi-assumenda-doloremque",
-                  "content": "Tempora fugit nobis earum eligendi dicta est. Sed minus ut dolores nihil nemo. Unde saepe vel quis nemo eum molestiae.\n\nRepellendus vero rerum nihil aut saepe asperiores aliquam. Sed velit consequatur cum nihil debitis soluta asperiores. Et soluta quo nisi ut autem.\n\nVeritatis quos quia tempora aut excepturi impedit. Voluptatem odit laudantium et. Neque fugiat id ab aperiam nulla est repellendus. Tempore eos esse veniam name."
+                  "uuid": "9c71df66-ccd3-4159-b1b8-de754347ebf5",
+                  "title": "Maxime ut sint natus quos.",
+                  "slug": "maxime-ut-sint-natus-quos",
+                  "content": "Omnis aut cumque sed deserunt odit. Et mollitia labore et doloremque.\n\nQuis dicta ab assumenda aut omnis sed earum quasi. Dolor qui molestiae nulla incidunt pariatur. In ullam veritatis inventore sunt quod tempore.\n\nVoluptatem quae adipisci fugit est. Et tempora eligendi architecto inventore aut autem aut. Ut tenetur ratione esse consequatur numquam atque laborum consequuntur. Aut et aut temporibus alias eos."
                 },
                 "to": 5,
                 "total": 5
@@ -1315,68 +1201,68 @@
                 "data": [
                   {
                     "id": 1,
-                    "uuid": "9c71d389-9817-42a9-8fa2-d4ed48c562fe",
-                    "title": "Et et voluptas qui esse.",
-                    "content": "Veritatis provident et sunt officia tempore.",
+                    "uuid": "9c71df66-d142-460a-97bd-651645c9176d",
+                    "title": "Ex dolorum provident et enim labore omnis.",
+                    "content": "Cumque ea nisi voluptate cum.",
                     "metadata": {
-                      "valid_from": "2024-06-29 13:51:21",
-                      "valid_to": "2024-07-13 20:20:08",
-                      "image": "80d6405a-254f-35ba-9874-702f1e6a78e7"
+                      "valid_from": "2024-06-30 16:16:12",
+                      "valid_to": "2024-07-15 09:01:00",
+                      "image": "03ef091a-ecc7-33cb-84a8-0a3e9ac9e234"
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 2,
-                    "uuid": "9c71d389-9830-4010-ba23-a27da48dd2d7",
-                    "title": "Expedita ratione aut nesciunt incidunt a.",
-                    "content": "Quas illo aspernatur rerum laudantium excepturi qui.",
+                    "uuid": "9c71df66-d15d-4a39-8dcf-e3f32e645d79",
+                    "title": "Ut eos odio eaque esse est impedit omnis.",
+                    "content": "Libero reprehenderit laudantium harum aliquam nobis.",
                     "metadata": {
-                      "valid_from": "2024-06-29 00:19:42",
-                      "valid_to": "2024-07-13 11:41:58",
-                      "image": "cfe8df3a-5421-36f3-93fd-cf2e6104b5b8"
+                      "valid_from": "2024-07-04 14:49:44",
+                      "valid_to": "2024-07-13 00:13:29",
+                      "image": "53bce646-b268-34d8-bffd-91371895186c"
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 3,
-                    "uuid": "9c71d389-9842-4f84-b35f-54459bd2e750",
-                    "title": "Quo velit reprehenderit molestiae laudantium voluptatum et.",
-                    "content": "Aut consequatur eaque ea accusamus aperiam non eius.",
+                    "uuid": "9c71df66-d170-4b6b-99c9-5b1bc8fd5685",
+                    "title": "Odit modi enim quibusdam et tempora perspiciatis.",
+                    "content": "Impedit dolores autem aperiam option nihil iure ipsa.",
                     "metadata": {
-                      "valid_from": "2024-07-05 22:16:17",
-                      "valid_to": "2024-07-12 22:52:46",
-                      "image": "d9494b13-b6a6-3c6e-9845-76e2b8f43d13"
+                      "valid_from": "2024-07-08 06:35:15",
+                      "valid_to": "2024-07-12 11:12:04",
+                      "image": "a7cfa644-1c6c-3cd6-bbf5-59e09da231c6"
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 4,
-                    "uuid": "9c71d389-9853-4ad7-bfa9-5673eb7279df",
-                    "title": "Libero aut eos quasi vero quisquam.",
-                    "content": "Omnis sed explicabo sed aut earum provident.",
+                    "uuid": "9c71df66-d18d-4926-8b4a-99f627bdf87c",
+                    "title": "Sit voluptate voluptas qui id.",
+                    "content": "Rerum consequuntur omnis maxime corrupti illum qui molestiae molestiae.",
                     "metadata": {
-                      "valid_from": "2024-07-03 20:03:18",
-                      "valid_to": "2024-07-11 22:48:17",
-                      "image": "a93cdf0c-8201-3116-8841-e244f54cd455"
+                      "valid_from": "2024-07-09 11:24:29",
+                      "valid_to": "2024-07-14 20:04:12",
+                      "image": "10bfc463-8fdd-301b-8ca7-777a7f485ffb"
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   },
                   {
                     "id": 5,
-                    "uuid": "9c71d389-9864-4328-882b-de4d03f0260e",
-                    "title": "Pariatur natus nulla quaerat itaque name vitae.",
-                    "content": "Velit voluptatem eum rerum ea vitae sit.",
+                    "uuid": "9c71df66-d1a0-426a-b3ca-6bd68f1675d3",
+                    "title": "Explicabo exercitationem laudantium eius minus eos ab placeat.",
+                    "content": "Exercitationem recusandae qui name odit nulla nesciunt autem.",
                     "metadata": {
-                      "valid_from": "2024-07-04 04:57:48",
-                      "valid_to": "2024-07-13 15:24:57",
-                      "image": "175d5dcb-6df4-33ea-90b5-ece3e0c6a79a"
+                      "valid_from": "2024-07-03 23:01:44",
+                      "valid_to": "2024-07-16 10:53:08",
+                      "image": "c769e377-17fd-3acc-a37c-8e2b85b40948"
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:32.000000Z",
+                    "updated_at": "2024-07-04T21:35:32.000000Z"
                   }
                 ],
                 "links": {
@@ -1441,192 +1327,192 @@
                   {
                     "id": 1,
                     "user_id": 1,
-                    "order_status_id": 5,
+                    "order_status_id": 1,
                     "payment_id": 1,
-                    "uuid": "9c71d389-cdce-4ad8-93d7-bb1c2f1bc7de",
+                    "uuid": "9c71df67-068a-40ba-a483-40213b7604dc",
                     "products": [
                       {
-                        "product": "9c71d389-9f73-4e7d-bd1d-e8001b9694c9",
-                        "quantity": 7
+                        "product": "9c71df66-d872-42f2-99e6-22bc2b162372",
+                        "quantity": 9
                       },
                       {
-                        "product": "9c71d389-9fdd-4b10-ac94-d44d0dc605d2",
-                        "quantity": 4
+                        "product": "9c71df66-d8da-49b4-bffc-fbfa7544d17c",
+                        "quantity": 1
                       },
                       {
-                        "product": "9c71d389-a045-4ef7-8a07-455dc0265165",
-                        "quantity": 7
+                        "product": "9c71df66-d943-4100-92e8-4f79abc5ce84",
+                        "quantity": 1
                       },
                       {
-                        "product": "9c71d389-a0b0-49df-b2d1-2c8491ae43b4",
-                        "quantity": 5
+                        "product": "9c71df66-d9b6-4365-a75e-b088c6d6325c",
+                        "quantity": 10
                       },
                       {
-                        "product": "9c71d389-a119-49a8-8aea-8ad66af0783e",
-                        "quantity": 8
+                        "product": "9c71df66-da23-462f-96f5-437cf43b1648",
+                        "quantity": 3
                       }
                     ],
                     "address": {
-                      "billing": "770 Bechtelar Inlet\nSouth Kathryneville, KY 36226-9631",
-                      "shipping": "3355 Giovanny Union\nLiamstad, KY 13154-1955"
+                      "billing": "6959 Kayleigh Crest Apt. 595\nVonville, NV 61655-9659",
+                      "shipping": "69598 Gerard Knolls Suite 808\nTillmanville, NV 17884"
                     },
                     "delivery_fee": null,
-                    "amount": 619.57,
+                    "amount": 878.02,
                     "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 2,
                     "user_id": 1,
-                    "order_status_id": 5,
+                    "order_status_id": 1,
                     "payment_id": 2,
-                    "uuid": "9c71d389-cde2-4589-bc9a-db6583d0eb42",
+                    "uuid": "9c71df67-069e-4124-9d4b-99d14165a47a",
                     "products": [
                       {
-                        "product": "9c71d389-a1c6-4252-93e1-4729ff1282aa",
-                        "quantity": 5
+                        "product": "9c71df66-dad0-4a71-8e7a-e5f30aeb2805",
+                        "quantity": 2
                       },
                       {
-                        "product": "9c71d389-a22e-4c98-9dee-be8d4fa05119",
-                        "quantity": 5
-                      },
-                      {
-                        "product": "9c71d389-a297-4502-8543-15ff4585575d",
-                        "quantity": 5
-                      },
-                      {
-                        "product": "9c71d389-a304-4654-9a8b-8f8368d06cb7",
+                        "product": "9c71df66-db38-4041-8abe-cb2da72fbfef",
                         "quantity": 4
                       },
                       {
-                        "product": "9c71d389-a371-4874-a933-fa5e693e952d",
-                        "quantity": 2
+                        "product": "9c71df66-dba4-4aa1-b945-a6b08669ca61",
+                        "quantity": 7
+                      },
+                      {
+                        "product": "9c71df66-dc0d-47ed-a8ba-21bcb99eeb91",
+                        "quantity": 10
+                      },
+                      {
+                        "product": "9c71df66-dc74-4f7d-b2c8-8e1a8c2b1936",
+                        "quantity": 4
                       }
                     ],
                     "address": {
-                      "billing": "174 Jacobi Stream\nSouth Elyssafort, CA 11666-3066",
-                      "shipping": "75191 Marco Mews Suite 979\nWildermanborough, VT 46186"
+                      "billing": "6131 Parisian Throughway\nPorterborough, OK 24034-6991",
+                      "shipping": "980 Mueller Forges\nPort Katelynn, NY 82268"
                     },
                     "delivery_fee": null,
-                    "amount": 856.35,
+                    "amount": 799.25,
                     "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 3,
                     "user_id": 1,
-                    "order_status_id": 5,
+                    "order_status_id": 1,
                     "payment_id": 3,
-                    "uuid": "9c71d389-cdf5-4f1a-b01f-2d6ab2143dda",
+                    "uuid": "9c71df67-06b1-44b1-a42b-8cf411ca6c99",
                     "products": [
                       {
-                        "product": "9c71d389-a41c-49d0-aed1-be03b8a2985c",
-                        "quantity": 9
+                        "product": "9c71df66-dd18-4b21-afe3-90a85eb997d1",
+                        "quantity": 10
                       },
                       {
-                        "product": "9c71d389-a484-4601-9206-ad17f88c27cf",
+                        "product": "9c71df66-dd80-4d4f-af36-5c7505e75e64",
                         "quantity": 1
                       },
                       {
-                        "product": "9c71d389-a4ed-47c5-abf1-4cdfab4b9bdf",
-                        "quantity": 9
+                        "product": "9c71df66-dde7-4581-bf3d-67c55a26025b",
+                        "quantity": 1
                       },
                       {
-                        "product": "9c71d389-a554-4778-8745-17e3e97bd701",
-                        "quantity": 4
+                        "product": "9c71df66-de4f-455c-b822-377210934485",
+                        "quantity": 1
                       },
                       {
-                        "product": "9c71d389-a5bc-4f81-a75b-109d3fe3e029",
-                        "quantity": 4
+                        "product": "9c71df66-deb9-48ca-aafd-01d3a208a94c",
+                        "quantity": 5
                       }
                     ],
                     "address": {
-                      "billing": "9576 Richmond Keys Apt. 655\nSouth Neil, SD 68660",
-                      "shipping": "958 Ullrich Cliffs\nSouth Adrienne, AL 69176-2533"
+                      "billing": "4894 Linda Summit Apt. 353\nWest Jaysonstad, NY 77235",
+                      "shipping": "4254 Hirthe Curve\nLake Audieside, ND 69770-4698"
                     },
                     "delivery_fee": null,
-                    "amount": 219.54,
+                    "amount": 901.93,
                     "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 4,
                     "user_id": 1,
-                    "order_status_id": 5,
+                    "order_status_id": 1,
                     "payment_id": 4,
-                    "uuid": "9c71d389-ce07-4fc2-a35e-e38d434d7d90",
+                    "uuid": "9c71df67-06c3-4e71-bb74-188f5b8a80f6",
                     "products": [
                       {
-                        "product": "9c71d389-a666-44c3-a077-22cb0e7c9ba0",
-                        "quantity": 5
-                      },
-                      {
-                        "product": "9c71d389-a6d4-46b4-ae44-df1b1fc373de",
-                        "quantity": 2
-                      },
-                      {
-                        "product": "9c71d389-a73c-4c72-9905-4fa6043ab65f",
+                        "product": "9c71df66-df5e-4fa0-acf0-1f675f9208a4",
                         "quantity": 3
                       },
                       {
-                        "product": "9c71d389-a7a4-4982-a3a6-7237fcd8d24f",
-                        "quantity": 9
+                        "product": "9c71df66-dfc6-46d2-bcb4-c4cb06da1652",
+                        "quantity": 8
                       },
                       {
-                        "product": "9c71d389-a811-4c6f-b25c-ca3cd003ab95",
+                        "product": "9c71df66-e02e-4125-9ce3-485ae3c9b0c4",
                         "quantity": 6
+                      },
+                      {
+                        "product": "9c71df66-e097-4774-bce9-00bb81c9c0be",
+                        "quantity": 4
+                      },
+                      {
+                        "product": "9c71df66-e0fe-4444-b24a-caf7747070c2",
+                        "quantity": 7
                       }
                     ],
                     "address": {
-                      "billing": "23222 Lockman Isle Apt. 577\nWest Harrisonmouth, WV 09760",
-                      "shipping": "31183 Kihn Loop Suite 974\nPort Isacstad, MD 26416-4757"
+                      "billing": "7764 Fadel Points Apt. 545\nNew Alishamouth, PA 97946-7129",
+                      "shipping": "3739 Hauck Run Suite 787\nFraneckistad, MN 65261-6406"
                     },
                     "delivery_fee": null,
-                    "amount": 410.83,
+                    "amount": 546.96,
                     "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 5,
                     "user_id": 1,
-                    "order_status_id": 5,
+                    "order_status_id": 1,
                     "payment_id": 5,
-                    "uuid": "9c71d389-ce19-483b-a350-22b08a8ee95f",
+                    "uuid": "9c71df67-06d5-45f1-9243-6b57d5a65c1c",
                     "products": [
                       {
-                        "product": "9c71d389-a8bb-4035-9175-a2f3d2ad882e",
-                        "quantity": 9
+                        "product": "9c71df66-e1a2-483e-bcf9-6901a64730d5",
+                        "quantity": 5
                       },
                       {
-                        "product": "9c71d389-a923-4cd3-88c7-9bf1cbf97216",
+                        "product": "9c71df66-e20a-48f0-beae-1a5c4b0932df",
+                        "quantity": 2
+                      },
+                      {
+                        "product": "9c71df66-e272-49b7-bec2-d5fde70f07f9",
                         "quantity": 4
                       },
                       {
-                        "product": "9c71d389-a98d-472b-bcff-c9274b71f184",
+                        "product": "9c71df66-e2dd-42b3-97d2-fdd26ccffb2f",
                         "quantity": 8
                       },
                       {
-                        "product": "9c71d389-a9f5-461e-af50-8565e9e3f524",
-                        "quantity": 8
-                      },
-                      {
-                        "product": "9c71d389-aa5a-4c92-91ba-69d479a4bf78",
-                        "quantity": 2
+                        "product": "9c71df66-e344-48cc-b11d-6e0516290dfa",
+                        "quantity": 1
                       }
                     ],
                     "address": {
-                      "billing": "5000 Louie Ports\nShermanmouth, SD 37551-3730",
-                      "shipping": "31906 Sage Streets\nMalvinaburgh, WA 35125"
+                      "billing": "3460 Hoeger Burg Suite 030\nEast Zackaryhaven, MI 67660",
+                      "shipping": "3654 Serenity Cape Suite 637\nNorth Lenoramouth, MD 29579-8829"
                     },
                     "delivery_fee": null,
-                    "amount": 193.12,
+                    "amount": 330.29,
                     "shipped_at": null,
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   }
                 ],
                 "links": {
@@ -1703,9 +1589,9 @@
                 "data": {
                   "id": 1,
                   "user_id": 1,
-                  "order_status_id": 4,
+                  "order_status_id": 1,
                   "payment_id": 1,
-                  "uuid": "9c71d389-d786-4e3b-9393-6cba0e71cad3"
+                  "uuid": "9c71df67-0fe1-4e49-ba6d-49d95f4fc0aa"
                 },
                 "to": 5,
                 "total": 5
@@ -1753,9 +1639,9 @@
                 "data": {
                   "id": 1,
                   "user_id": 1,
-                  "order_status_id": 4,
+                  "order_status_id": 2,
                   "payment_id": 1,
-                  "uuid": "9c71d389-e79e-45c4-85f7-ffc2cd86d27f"
+                  "uuid": "9c71df67-1f1b-405d-8551-1b4d07d58d23"
                 },
                 "to": 5,
                 "total": 5
@@ -1833,33 +1719,33 @@
                 "data": {
                   "payment_id": 1,
                   "address": {
-                    "billing": "143 Hill Cliff\nReynoldsside, LA 12301-3912",
-                    "shipping": "334 Rick Crossroad\nLinaland, NM 54643-1832"
+                    "billing": "7518 Rolfson Junction\nNew Aletha, NH 92944",
+                    "shipping": "8106 Crooks Bridge Suite 498\nEast Baileyland, SC 12177"
                   },
                   "products": [
                     {
-                      "product": "9c71d389-dd3c-4cb8-9e03-92cf4220f0e5",
-                      "quantity": 1
+                      "product": "9c71df67-150f-41cd-ac7d-22222768e191",
+                      "quantity": 4
                     },
                     {
-                      "product": "9c71d389-dda3-4f2f-a1ae-a3913ea8241b",
+                      "product": "9c71df67-157a-4a86-bec2-86738e0ccc6d",
+                      "quantity": 9
+                    },
+                    {
+                      "product": "9c71df67-15de-48b9-ba1e-6d5713e87ec0",
+                      "quantity": 4
+                    },
+                    {
+                      "product": "9c71df67-1644-43eb-bb73-4175e2b3a541",
+                      "quantity": 9
+                    },
+                    {
+                      "product": "9c71df67-16ab-48ae-9220-c0631245adbd",
                       "quantity": 7
-                    },
-                    {
-                      "product": "9c71d389-de0b-4c74-9ff9-40531695d733",
-                      "quantity": 8
-                    },
-                    {
-                      "product": "9c71d389-de72-4373-b8e4-5e4ea6a3affd",
-                      "quantity": 1
-                    },
-                    {
-                      "product": "9c71d389-ded9-4560-a8ef-8e484de3cea6",
-                      "quantity": 2
                     }
                   ],
-                  "order_status_id": 3,
-                  "amount": 12367.92
+                  "order_status_id": 2,
+                  "amount": 9361.27
                 },
                 "to": 5,
                 "total": 5
@@ -1953,38 +1839,38 @@
                 "data": [
                   {
                     "id": 1,
-                    "uuid": "9c71d38a-3a19-4278-b34a-275378a80f52",
+                    "uuid": "9c71df67-7066-4284-b1c6-b6944daad668",
                     "title": "open",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 2,
-                    "uuid": "9c71d38a-3a3d-4731-a28b-ff0eb2a48c43",
+                    "uuid": "9c71df67-7096-4b3c-a5ee-adb78e87a2b1",
                     "title": "pending payment",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 3,
-                    "uuid": "9c71d38a-3a5b-46d8-b86b-d669a9c49983",
+                    "uuid": "9c71df67-70b4-409f-b8fe-4918c069ca35",
                     "title": "paid",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 4,
-                    "uuid": "9c71d38a-3a79-4052-8eea-15419f7ad209",
+                    "uuid": "9c71df67-70d1-4c6a-adc7-a1796db93ccf",
                     "title": "shipped",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 5,
-                    "uuid": "9c71d38a-3a97-4657-918f-c69b0ccc6d7f",
+                    "uuid": "9c71df67-70ee-436b-81eb-5c6d41123cd3",
                     "title": "cancelled",
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   }
                 ],
                 "links": {
@@ -2058,10 +1944,10 @@
             "schema": {
               "example": {
                 "data": {
-                  "title": "dignissimos",
-                  "uuid": "9c71d38a-3f6f-4a16-8ece-cb6c7915b16e",
-                  "updated_at": "2024-07-04T21:02:22.000000Z",
-                  "created_at": "2024-07-04T21:02:22.000000Z",
+                  "title": "molestias",
+                  "uuid": "9c71df67-7588-430d-8791-1ff0e3c9f93c",
+                  "updated_at": "2024-07-04T21:35:33.000000Z",
+                  "created_at": "2024-07-04T21:35:33.000000Z",
                   "id": 1
                 },
                 "to": 5,
@@ -2104,10 +1990,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d38a-425a-4da3-b278-e980a7b21b1a",
-                  "title": "non",
-                  "created_at": "2024-07-04T21:02:22.000000Z",
-                  "updated_at": "2024-07-04T21:02:22.000000Z"
+                  "uuid": "9c71df67-783b-44a3-a28d-b4a75ce8c938",
+                  "title": "quas",
+                  "created_at": "2024-07-04T21:35:33.000000Z",
+                  "updated_at": "2024-07-04T21:35:33.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -2154,10 +2040,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d38a-4592-487a-9fd3-900a11733e49",
-                  "title": "quisquam",
-                  "created_at": "2024-07-04T21:02:22.000000Z",
-                  "updated_at": "2024-07-04T21:02:22.000000Z"
+                  "uuid": "9c71df67-7b10-46b4-bbdd-7ad3d322aa99",
+                  "title": "itaque",
+                  "created_at": "2024-07-04T21:35:33.000000Z",
+                  "updated_at": "2024-07-04T21:35:33.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -2225,65 +2111,63 @@
                 "data": [
                   {
                     "id": 1,
-                    "uuid": "9c71d38a-4fd7-410e-aee7-4433dec9b686",
+                    "uuid": "9c71df67-84e9-4203-94ca-ed8791892af0",
                     "type": "bank_transfer",
                     "details": {
-                      "swift": "AFCBCKJUN6B",
-                      "iban": "Et beatae iure dolorem dolorem eos.",
-                      "name": "Voluptatum nemo et officia quod."
+                      "swift": "XLJUFAWQ",
+                      "iban": "Officia eligendi quisquam dolor dolor quo similique name.",
+                      "name": "Voluptas dolorem accusamus fugit est."
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 2,
-                    "uuid": "9c71d38a-4fee-420e-970a-028dd5d58fff",
-                    "type": "cash_on_delivery",
+                    "uuid": "9c71df67-8501-4565-a740-42ab90a6b619",
+                    "type": "bank_transfer",
                     "details": {
-                      "first_name": "Leann",
-                      "last_name": "Ratke",
-                      "address": "239 Trystan Ports Apt. 502\nFriedabury, MA 95237-8270"
+                      "swift": "JHWWFUU7QQQ",
+                      "iban": "Harum et soluta perspiciatis.",
+                      "name": "Ipsum et quibusdam name velit."
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 3,
-                    "uuid": "9c71d38a-4fff-4869-942f-b119f85f6216",
-                    "type": "credit_card",
+                    "uuid": "9c71df67-8512-445a-8523-591734474fa2",
+                    "type": "bank_transfer",
                     "details": {
-                      "holder_name": "Anastasia Lowe",
-                      "number": "2519012625506931",
-                      "cvv": 515,
-                      "expire_date": "12/25"
+                      "swift": "PLVIJZYR",
+                      "iban": "Numquam aspernatur et dolore alias pariatur magnam iusto.",
+                      "name": "Veniam mollitia quod et facere voluptatem."
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 4,
-                    "uuid": "9c71d38a-5011-4ba4-bf3b-9aa371fd0460",
-                    "type": "bank_transfer",
+                    "uuid": "9c71df67-8523-4018-a371-9200a4b82f8c",
+                    "type": "cash_on_delivery",
                     "details": {
-                      "swift": "IQBJPL9Y",
-                      "iban": "Reiciendis illo excepturi et provident quod quo cum facere.",
-                      "name": "Saepe omnis ad dolorem ullam quod ipsum officia."
+                      "first_name": "Alessandra",
+                      "last_name": "Mertz",
+                      "address": "41190 Wiegand Shoals\nNorth Nelda, VT 60796-4634"
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 5,
-                    "uuid": "9c71d38a-5022-4fbb-bc1d-f06cf0a165ff",
-                    "type": "credit_card",
+                    "uuid": "9c71df67-8538-4dcb-8aaa-086e555eab99",
+                    "type": "bank_transfer",
                     "details": {
-                      "holder_name": "Mr. Lonny Ledner",
-                      "number": "4539788607494871",
-                      "cvv": 547,
-                      "expire_date": "01/26"
+                      "swift": "UDKXVZDQ",
+                      "iban": "Molestiae incidunt itaque maiores et.",
+                      "name": "Laboriosam fuga est nisi animi quam architecto."
                     },
-                    "created_at": "2024-07-04T21:02:22.000000Z",
-                    "updated_at": "2024-07-04T21:02:22.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   }
                 ],
                 "links": {
@@ -2362,16 +2246,15 @@
             "schema": {
               "example": {
                 "data": {
-                  "type": "credit_card",
+                  "type": "cash_on_delivery",
                   "details": {
-                    "holder_name": "Kiera Gorczany",
-                    "number": "2596450756838648",
-                    "cvv": 384,
-                    "expire_date": "11/26"
+                    "first_name": "Annetta",
+                    "last_name": "Schmeler",
+                    "address": "654 Braun Junctions\nStrackebury, IA 44616"
                   },
-                  "uuid": "9c71d38a-56ef-4297-a635-d69c88f2d0f5",
-                  "updated_at": "2024-07-04T21:02:22.000000Z",
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "uuid": "9c71df67-8bee-4c82-be81-ceb043c1cb8e",
+                  "updated_at": "2024-07-04T21:35:33.000000Z",
+                  "created_at": "2024-07-04T21:35:33.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -2413,14 +2296,14 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d38a-59db-49de-94b3-cde6445fa481",
-                  "type": "cash_on_delivery",
+                  "uuid": "9c71df67-8eae-47c9-96ae-95a26a275320",
+                  "type": "bank_transfer",
                   "details": {
-                    "first_name": "Casey",
-                    "last_name": "Wolf",
-                    "address": "500 Nina Cliff Suite 752\nNew Verla, CA 62009"
+                    "swift": "NKKDJDC4",
+                    "iban": "Voluptas quia consequatur sed tenetur.",
+                    "name": "Qui quasi repudiandae quia quo sed error tempore."
                   },
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "created_at": "2024-07-04T21:35:33.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -2467,14 +2350,14 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "uuid": "9c71d38a-5dcc-4a49-8654-169414b7bfd5",
+                  "uuid": "9c71df67-9276-460a-bda7-1c0e45a638de",
                   "type": "bank_transfer",
                   "details": {
-                    "swift": "HIINYVLR5DX",
-                    "iban": "Doloremque accusamus name minima et.",
-                    "name": "Quas vel deleniti repellat."
+                    "swift": "NOTDJDI2",
+                    "iban": "Magnam et consequatur eum.",
+                    "name": "Error deserunt neque quibusdam et neque est."
                   },
-                  "created_at": "2024-07-04T21:02:22.000000Z"
+                  "created_at": "2024-07-04T21:35:33.000000Z"
                 },
                 "to": 5,
                 "total": 5
@@ -2542,78 +2425,78 @@
                 "data": [
                   {
                     "id": 1,
-                    "category_uuid": "9c71d38a-6796-46eb-a8f7-6319c78a3fec",
-                    "uuid": "9c71d38a-6e25-434d-8037-2fad63aea70f",
-                    "title": "Est unde eligendi unde tenetur.",
-                    "price": 775.55,
-                    "description": "Magni aut sed voluptatem quo aperiam iste veniam. Sed repellendus mollitia voluptas ut distinctio dicta quis. Expedita accusamus placeat ducimus laudantium reprehenderit quae.",
+                    "category_uuid": "9c71df67-9d25-4882-9871-8de0e0f71207",
+                    "uuid": "9c71df67-a3c5-44be-a437-3be8c92467ab",
+                    "title": "Quisquam accusamus qui eum maxime atque qui cum.",
+                    "price": 213.25,
+                    "description": "Recusandae cumque vitae consequatur doloremque libero laboriosam. Esse est et deleniti amet blanditiis. Debitis maxime tenetur odit possimus exercitationem numquam. Exercitationem sunt nisi non autem quam.",
                     "metadata": {
-                      "brand": "9c71d38a-67cb-491b-a3c6-093ef9d0158a",
-                      "image": "c7c50b5f-1d21-37d8-b21b-ede93001b9a4"
+                      "brand": "9c71df67-9d66-4b99-b5f4-479a1eef58bd",
+                      "image": "c26c26fa-d136-379c-b192-3d02df158409"
                     },
                     "deleted_at": null,
-                    "created_at": "2024-07-04T21:02:23.000000Z",
-                    "updated_at": "2024-07-04T21:02:23.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 2,
-                    "category_uuid": "9c71d38a-67f9-4e94-92e6-fcc0bf9293c9",
-                    "uuid": "9c71d38a-6e39-43c6-85de-36e2f969e83e",
-                    "title": "Rem illo rerum consequuntur commodi minima accusantium modi.",
-                    "price": 798.74,
-                    "description": "A quia ab sed illum sapiente. Sit sapiente tempora ipsum voluptas. A ipsam architecto quis est eos ab. Fuga nisi harum autem est enim quia at.",
+                    "category_uuid": "9c71df67-9da4-4ede-b96b-58cacc92681d",
+                    "uuid": "9c71df67-a3d8-491f-a2e2-b9befae7312e",
+                    "title": "Magnam dolore officia eveniet illum exercitationem quis.",
+                    "price": 53.07,
+                    "description": "Et quis et ut. Sapiente quidem pariatur enim ut dolorem ut aut. Eveniet qui nostrum officiis fuga.",
                     "metadata": {
-                      "brand": "9c71d38a-6820-4927-b5d6-d213da68a2d8",
-                      "image": "1f4fee9b-0641-3edf-be46-ab7e7d896275"
+                      "brand": "9c71df67-9dcd-458a-a873-8bbf4c0c02e0",
+                      "image": "3e3b2b02-2b4a-389e-a8ae-5e02ed8d0f53"
                     },
                     "deleted_at": null,
-                    "created_at": "2024-07-04T21:02:23.000000Z",
-                    "updated_at": "2024-07-04T21:02:23.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 3,
-                    "category_uuid": "9c71d38a-684b-49e4-956e-c270e7ffbc9f",
-                    "uuid": "9c71d38a-6e4b-4831-9a39-92976cc4557e",
-                    "title": "Recusandae velit distinctio vel odit culpa.",
-                    "price": 879.1,
-                    "description": "Eveniet odio rerum consequatur accusamus corrupti. A temporibus quae maxime qui sit molestiae inventore est. Cupiditate consequatur hic ipsam qui. Nisi veniam ut voluptatibus option. Aperiam et alias aut rerum ab molestiae quas in.",
+                    "category_uuid": "9c71df67-9dfd-4a31-889b-97d42d99c1a0",
+                    "uuid": "9c71df67-a3ea-4239-bd56-c71f7dbd2d84",
+                    "title": "A nihil itaque sed aut.",
+                    "price": 615.4,
+                    "description": "Facilis dolores nostrum alias incidunt totam non animi. Incidunt expedita consequatur rem unde. Provident qui quibusdam architecto excepturi doloremque alias.",
                     "metadata": {
-                      "brand": "9c71d38a-6873-412d-869e-47a82f7eb218",
-                      "image": "078cde24-c076-3670-9a74-48326f7218a8"
+                      "brand": "9c71df67-9e24-4faf-9010-c10a42749def",
+                      "image": "692d6ae3-c102-3fcc-a631-4e4f36a93fcf"
                     },
                     "deleted_at": null,
-                    "created_at": "2024-07-04T21:02:23.000000Z",
-                    "updated_at": "2024-07-04T21:02:23.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 4,
-                    "category_uuid": "9c71d38a-689e-48a3-8359-9ff5abf31dcd",
-                    "uuid": "9c71d38a-6e5d-4323-b33b-c5d83ca55305",
-                    "title": "Et modi repellat beatae.",
-                    "price": 791.97,
-                    "description": "Et consectetur voluptate ea similique. Aperiam sit sint atque. Eos exercitationem ipsum nihil libero eum veritatis accusamus. Facere quia dolor quia et atque.",
+                    "category_uuid": "9c71df67-9e4f-4dc2-b74a-c6b2b68bd5f7",
+                    "uuid": "9c71df67-a3fc-4127-b60f-02adae1de7a5",
+                    "title": "Odio repellendus amet et.",
+                    "price": 17.47,
+                    "description": "Natus qui doloremque expedita temporibus. Iure delectus veritatis ea et ratione. Atque quia a iure dolores totam non sunt. Tempora voluptatibus maiores ut.",
                     "metadata": {
-                      "brand": "9c71d38a-68c5-4069-ab72-06d3ac6346b9",
-                      "image": "1926fcdd-06a1-3ab9-a3d1-c06c4c27ebde"
+                      "brand": "9c71df67-9e75-4f3f-8d7a-950c6b377cc6",
+                      "image": "20db2ffe-8703-3cb3-b096-f8c369e95bea"
                     },
                     "deleted_at": null,
-                    "created_at": "2024-07-04T21:02:23.000000Z",
-                    "updated_at": "2024-07-04T21:02:23.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   },
                   {
                     "id": 5,
-                    "category_uuid": "9c71d38a-68f3-4647-9c7d-9c02b23c9d98",
-                    "uuid": "9c71d38a-6e6e-498d-8fd7-eabf50fc5e80",
-                    "title": "Aut ad fugit occaecati aut quasi dolores at.",
-                    "price": 9.06,
-                    "description": "Dolor quis et dolore quas eaque dolorum veritatis. Quod aut aut dolor praesentium aliquid ullam. Voluptate cum eveniet quisquam vel sit tenetur fugit architecto. Facere qui numquam adipisci name et architecto exercitationem.",
+                    "category_uuid": "9c71df67-9ea6-4380-9604-2d3c87e7c111",
+                    "uuid": "9c71df67-a40d-4027-91e3-358198790495",
+                    "title": "Alias cumque et esse quasi rerum sint.",
+                    "price": 142.74,
+                    "description": "Eos totam dolorem rem ut aliquid. Dolore illum magnam sint. Explicabo name ea similique esse fugiat nostrum occaecati quidem.",
                     "metadata": {
-                      "brand": "9c71d38a-691b-481d-bd8d-28227fb54b54",
-                      "image": "78f1fcc5-bfc3-38f9-80c5-37ca145b1d66"
+                      "brand": "9c71df67-9ecd-44a3-9c3c-f7c67c49b18a",
+                      "image": "3a6ffce6-cb7a-3fbf-b372-9e3c275274e2"
                     },
                     "deleted_at": null,
-                    "created_at": "2024-07-04T21:02:23.000000Z",
-                    "updated_at": "2024-07-04T21:02:23.000000Z"
+                    "created_at": "2024-07-04T21:35:33.000000Z",
+                    "updated_at": "2024-07-04T21:35:33.000000Z"
                   }
                 ],
                 "links": {
@@ -2692,13 +2575,13 @@
             "schema": {
               "example": {
                 "data": {
-                  "category_uuid": "9c71d38a-745c-4e3e-8eca-f6874e024201",
-                  "title": "Ut tempora laboriosam repudiandae doloremque quo.",
-                  "price": 205.98,
-                  "description": "Officiis accusamus minus sunt praesentium sapiente. Et consequuntur sunt et ut dolores corrupti. Rerum nobis qui maiores beatae sunt sequi vitae placeat. Deleniti sed voluptatibus ut possimus voluptatem quae recusandae.",
+                  "category_uuid": "9c71df67-a99d-447c-b35e-ce8731beb198",
+                  "title": "Voluptas reprehenderit et labore aspernatur.",
+                  "price": 896.58,
+                  "description": "Iure aliquid culpa error omnis repellendus ullam et. Quo aliquid dolorem omnis eius option ipsum. Minus option illo natus consectetur est ut. Omnis architecto mollitia tenetur minus velit.",
                   "metadata": {
-                    "brand": "9c71d38a-7492-4d08-b0f6-fa89755a6942",
-                    "image": "bd121d7d-3ff2-3004-84b3-56cf7368697b"
+                    "brand": "9c71df67-a9d0-458e-81fb-eca1aae1575e",
+                    "image": "d1674398-96de-3675-8782-a835f356563b"
                   }
                 },
                 "to": 5,
@@ -2741,10 +2624,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "category_uuid": "9c71d38a-794e-4966-8ce3-fc3d6b539ecd",
-                  "uuid": "9c71d38a-79b1-443d-8b95-2aac61d65a9f",
-                  "title": "Sit magnam pariatur ab inventore.",
-                  "price": 715.69
+                  "category_uuid": "9c71df67-ae07-4728-b165-016c07446990",
+                  "uuid": "9c71df67-ae5b-41fa-8aed-b30abdefaf84",
+                  "title": "Recusandae sint quis aliquam quidem tenetur autem blanditiis.",
+                  "price": 369.71
                 },
                 "to": 5,
                 "total": 5
@@ -2791,10 +2674,10 @@
               "example": {
                 "data": {
                   "id": 1,
-                  "category_uuid": "9c71d38a-7d85-4a13-9125-f80c465a7e0c",
-                  "uuid": "9c71d38a-7d67-481e-8f7a-f1a32511ba9a",
-                  "title": "Dicta aperiam quam in quidem consequuntur.",
-                  "price": 725.68
+                  "category_uuid": "9c71df67-b1bc-45cb-ada8-48ace8948773",
+                  "uuid": "9c71df67-b19e-4918-8e31-f9ea77e4473c",
+                  "title": "Excepturi eius dolores quia vero rerum name.",
+                  "price": 994.74
                 },
                 "to": 5,
                 "total": 5
@@ -2865,7 +2748,7 @@
         "password"
       ],
       "example": {
-        "email": "qjakubowski@example.net",
+        "email": "okon.icie@example.net",
         "password": "password"
       }
     },
@@ -2889,19 +2772,10 @@
     "postApiv1userlogin422ResponseObject": {
       "type": "object",
       "properties": {
-        "error": {
+        "message": {
           "type": "string"
         },
-        "success": {
-          "type": "boolean"
-        },
-        "data": {
-          "type": "array"
-        },
         "errors": {
-          "type": "array"
-        },
-        "trace": {
           "type": "array"
         }
       }
@@ -2914,7 +2788,7 @@
       "type": "object",
       "properties": [],
       "example": {
-        "email": "lambert.vonrueden@example.com"
+        "email": "peggie62@example.org"
       }
     },
     "postApiv1userforgotPassword200ResponseObject": {
@@ -2929,8 +2803,8 @@
       "type": "object",
       "properties": [],
       "example": {
-        "token": "684151685c14200a2de5f8d66bde9155f702fa440664a047a68a40537895a2aa",
-        "email": "lambert.vonrueden@example.com",
+        "token": "0be75dbdad60ac7a20db4d9264dc3e51033250becda0187af67423d1c5e93d6e",
+        "email": "peggie62@example.org",
         "password": "password",
         "password_confirmation": "password"
       }
@@ -2984,15 +2858,15 @@
         "phone_number"
       ],
       "example": {
-        "first_name": "Gene",
-        "last_name": "Johns",
-        "email": "green47@example.org",
-        "password": "eb`0uY&n[:gff`to@",
-        "password_confirmation": "eb`0uY&n[:gff`to@",
-        "address": "851 Prosacco Rapid\nAvishaven, WV 53782-0001",
-        "phone_number": "+13512695129",
-        "is_marketing": false,
-        "avatar": "4ce60a6d-e7d7-3d03-87d7-b84d75c86df6"
+        "first_name": "Ursula",
+        "last_name": "Bruen",
+        "email": "ubeier@example.net",
+        "password": "I$-1KIf';',6(*5,2h>",
+        "password_confirmation": "I$-1KIf';',6(*5,2h>",
+        "address": "819 Ritchie Springs\nElmerburgh, WY 84396",
+        "phone_number": "+13238384965",
+        "is_marketing": true,
+        "avatar": "544e918a-7e03-3770-a2d8-d930d35bb08c"
       }
     },
     "postApiv1usercreate201ResponseObject": {
@@ -3068,11 +2942,11 @@
         "phone_number"
       ],
       "example": {
-        "first_name": "Amya",
-        "last_name": "McDermott",
-        "email": "tdare@gmail.com",
-        "address": "250 Molly Prairie\nHaagville, NV 76115",
-        "phone_number": "+14756560311"
+        "first_name": "Zola",
+        "last_name": "Kuhlman",
+        "email": "tara90@bogan.org",
+        "address": "373 Moen Pines\nTyrelstad, MN 74836",
+        "phone_number": "+13518768916"
       }
     },
     "putApiv1user200ResponseObject": {
@@ -3141,7 +3015,7 @@
         "title"
       ],
       "example": {
-        "title": "sit"
+        "title": "sunt"
       }
     },
     "postApiv1brandcreate201ResponseObject": {
@@ -3184,7 +3058,7 @@
         "title"
       ],
       "example": {
-        "title": "asperiores"
+        "title": "ut"
       }
     },
     "patchApiv1brand{brand}200ResponseObject": {
@@ -3231,7 +3105,7 @@
         "title"
       ],
       "example": {
-        "title": "Adipisci dolore autem est aperiam accusantium minima autem."
+        "title": "Nihil necessitatibus et beatae occaecati quas sequi id quo."
       }
     },
     "postApiv1categorycreate201ResponseObject": {
@@ -3274,7 +3148,7 @@
         "title"
       ],
       "example": {
-        "title": "Officia perspiciatis dolorem et dolores libero magni ab."
+        "title": "Perspiciatis cumque sed odit."
       }
     },
     "putApiv1category{category}200ResponseObject": {
@@ -3426,34 +3300,34 @@
       "example": {
         "products": [
           {
-            "product": "9c71d389-dd3c-4cb8-9e03-92cf4220f0e5",
-            "quantity": 1
+            "product": "9c71df67-150f-41cd-ac7d-22222768e191",
+            "quantity": 4
           },
           {
-            "product": "9c71d389-dda3-4f2f-a1ae-a3913ea8241b",
+            "product": "9c71df67-157a-4a86-bec2-86738e0ccc6d",
+            "quantity": 9
+          },
+          {
+            "product": "9c71df67-15de-48b9-ba1e-6d5713e87ec0",
+            "quantity": 4
+          },
+          {
+            "product": "9c71df67-1644-43eb-bb73-4175e2b3a541",
+            "quantity": 9
+          },
+          {
+            "product": "9c71df67-16ab-48ae-9220-c0631245adbd",
             "quantity": 7
-          },
-          {
-            "product": "9c71d389-de0b-4c74-9ff9-40531695d733",
-            "quantity": 8
-          },
-          {
-            "product": "9c71d389-de72-4373-b8e4-5e4ea6a3affd",
-            "quantity": 1
-          },
-          {
-            "product": "9c71d389-ded9-4560-a8ef-8e484de3cea6",
-            "quantity": 2
           }
         ],
         "address": {
-          "billing": "143 Hill Cliff\nReynoldsside, LA 12301-3912",
-          "shipping": "334 Rick Crossroad\nLinaland, NM 54643-1832"
+          "billing": "7518 Rolfson Junction\nNew Aletha, NH 92944",
+          "shipping": "8106 Crooks Bridge Suite 498\nEast Baileyland, SC 12177"
         },
-        "amount": 257.02,
+        "amount": 377.97,
         "payment_id": 1,
         "user_id": 1,
-        "order_status_id": 3
+        "order_status_id": 1
       }
     },
     "postApiv1orderscreate201ResponseObject": {
@@ -3518,37 +3392,37 @@
       "example": {
         "products": [
           {
-            "product": "9c71d389-e5a1-4e6a-ae01-35be85b9496e",
-            "quantity": 8
-          },
-          {
-            "product": "9c71d389-e60a-4480-b311-12c87c805fa8",
+            "product": "9c71df67-1d2c-41c7-bf17-6f6a4287cb0a",
             "quantity": 1
           },
           {
-            "product": "9c71d389-e677-4cb6-a393-f3f634473871",
+            "product": "9c71df67-1d91-4922-b6fd-b6c5149f90f2",
             "quantity": 3
           },
           {
-            "product": "9c71d389-e6dd-4072-802a-369da0718e6e",
-            "quantity": 10
+            "product": "9c71df67-1df6-4fbd-9ea4-652549363bf4",
+            "quantity": 5
           },
           {
-            "product": "9c71d389-e745-4b4b-83a0-0a148f98cb62",
-            "quantity": 8
+            "product": "9c71df67-1e5d-45b8-9650-6803b3a35309",
+            "quantity": 3
+          },
+          {
+            "product": "9c71df67-1ec4-496c-afb4-01341b3627e4",
+            "quantity": 3
           }
         ],
         "address": {
-          "billing": "186 Joanne Wells\nNorth Foresttown, AK 23615",
-          "shipping": "19888 Kattie Rest\nFunkville, NM 73533-3691"
+          "billing": "140 Kunze Stravenue\nGoodwintown, NJ 78054-1468",
+          "shipping": "773 Winfield Flats\nMcDermottside, WA 16902-1375"
         },
-        "amount": 887.48,
+        "amount": 314.75,
         "payment_id": 1,
         "user_id": 1,
-        "order_status_id": 4,
-        "uuid": "9c71d389-e79e-45c4-85f7-ffc2cd86d27f",
-        "updated_at": "2024-07-04T21:02:22.000000Z",
-        "created_at": "2024-07-04T21:02:22.000000Z",
+        "order_status_id": 2,
+        "uuid": "9c71df67-1f1b-405d-8551-1b4d07d58d23",
+        "updated_at": "2024-07-04T21:35:33.000000Z",
+        "created_at": "2024-07-04T21:35:33.000000Z",
         "id": 1
       }
     },
@@ -3616,7 +3490,7 @@
         "title"
       ],
       "example": {
-        "title": "dignissimos"
+        "title": "molestias"
       }
     },
     "postApiv1orderStatusescreate201ResponseObject": {
@@ -3659,7 +3533,7 @@
         "title"
       ],
       "example": {
-        "title": "quisquam"
+        "title": "itaque"
       }
     },
     "patchApiv1orderStatus{orderStatus}200ResponseObject": {
@@ -3732,12 +3606,11 @@
         "details.name"
       ],
       "example": {
-        "type": "credit_card",
+        "type": "cash_on_delivery",
         "details": {
-          "holder_name": "Kiera Gorczany",
-          "number": "2596450756838648",
-          "cvv": 384,
-          "expire_date": "11/26"
+          "first_name": "Annetta",
+          "last_name": "Schmeler",
+          "address": "654 Braun Junctions\nStrackebury, IA 44616"
         }
       }
     },
@@ -3803,9 +3676,9 @@
       "example": {
         "type": "bank_transfer",
         "details": {
-          "swift": "HIINYVLR5DX",
-          "iban": "Doloremque accusamus name minima et.",
-          "name": "Quas vel deleniti repellat."
+          "swift": "NOTDJDI2",
+          "iban": "Magnam et consequatur eum.",
+          "name": "Error deserunt neque quibusdam et neque est."
         }
       }
     },
@@ -3878,13 +3751,13 @@
         "description"
       ],
       "example": {
-        "title": "Ut tempora laboriosam repudiandae doloremque quo.",
-        "category_uuid": "9c71d38a-745c-4e3e-8eca-f6874e024201",
-        "price": 205.98,
-        "description": "Officiis accusamus minus sunt praesentium sapiente. Et consequuntur sunt et ut dolores corrupti. Rerum nobis qui maiores beatae sunt sequi vitae placeat. Deleniti sed voluptatibus ut possimus voluptatem quae recusandae.",
+        "title": "Voluptas reprehenderit et labore aspernatur.",
+        "category_uuid": "9c71df67-a99d-447c-b35e-ce8731beb198",
+        "price": 896.58,
+        "description": "Iure aliquid culpa error omnis repellendus ullam et. Quo aliquid dolorem omnis eius option ipsum. Minus option illo natus consectetur est ut. Omnis architecto mollitia tenetur minus velit.",
         "metadata": {
-          "brand": "9c71d38a-7492-4d08-b0f6-fa89755a6942",
-          "image": "bd121d7d-3ff2-3004-84b3-56cf7368697b"
+          "brand": "9c71df67-a9d0-458e-81fb-eca1aae1575e",
+          "image": "d1674398-96de-3675-8782-a835f356563b"
         }
       }
     },
@@ -3947,13 +3820,13 @@
         "description"
       ],
       "example": {
-        "title": "Dicta aperiam quam in quidem consequuntur.",
-        "category_uuid": "9c71d38a-7d85-4a13-9125-f80c465a7e0c",
-        "price": 725.68,
-        "description": "Natus aut voluptates voluptatem earum laudantium odit quia. Velit dicta nesciunt quae eos. Consequatur ullam doloribus rerum. Non omnis accusamus asperiores culpa nobis.",
+        "title": "Excepturi eius dolores quia vero rerum name.",
+        "category_uuid": "9c71df67-b1bc-45cb-ada8-48ace8948773",
+        "price": 994.74,
+        "description": "Quia corporis ut et quia dicta sint minima. Veritatis quaerat autem modi et. Quam odio cum eligendi eos voluptatum laudantium soluta.",
         "metadata": {
-          "brand": "9c71d38a-7daf-4495-9443-27db849130dc",
-          "image": "33e66178-c5a7-3d14-b9d7-888278356027"
+          "brand": "9c71df67-b1e2-4e37-a7a3-131447da7b77",
+          "image": "b51c7ab0-c17c-3d69-a32c-aa8e08cf6b3a"
         }
       }
     },
@@ -3986,4 +3859,3 @@
     }
   }
 }
-
