@@ -45,7 +45,7 @@ class OrderController extends Controller
                 'amount' => $request
                     ->safe()
                     ->collect('products')
-                    ->map(fn ($payload) => Product::where('uuid', $payload['product'])->first()->price * $payload['quantity'])
+                    ->map(fn($payload) => Product::where('uuid', $payload['product'])->first()->price * $payload['quantity'])
                     ->sum(),
             ]);
 
@@ -67,7 +67,7 @@ class OrderController extends Controller
     {
         $order->update($request->validated());
 
-        return OrderResource::make($order);
+        return OrderResource::make($order->fresh());
     }
 
     /**

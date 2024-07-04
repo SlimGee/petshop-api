@@ -46,7 +46,7 @@ enum PaymentType: string
             self::CREDIT_CARD => [
                 'holder_name' => fake()->name(),
                 'number' => fake()->creditCardNumber,
-                'cvv' => fake()->randomNumber(3),
+                'cvv' => rand(100, 999),
                 'expire_date' => fake()->creditCardExpirationDateString(),
             ],
             self::CASH_ON_DELIVERY => [
@@ -60,6 +60,5 @@ enum PaymentType: string
                 'name' => fake()->sentence(),
             ]
         };
-
     }
 }
