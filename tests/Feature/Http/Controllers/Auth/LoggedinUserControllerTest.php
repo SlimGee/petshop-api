@@ -42,15 +42,14 @@ class LoggedinUserControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $token = JWT::encode(['user_uuid' => $user->uuid]);
+        $token = JWT::encode($user);
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.$token,
+            'Authorization' => 'Bearer ' . $token,
         ])->getJson('/api/v1/user/logout');
 
         $response->assertNoContent();
 
         $this->assertFalse(JWT::validate($token));
-
     }
 }

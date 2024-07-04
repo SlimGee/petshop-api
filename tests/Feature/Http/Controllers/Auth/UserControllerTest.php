@@ -5,7 +5,6 @@ namespace Tests\Feature\Http\Controllers\Auth;
 use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\User;
-use App\Services\Auth\Facades\JWT;
 use Tests\TestCase;
 
 class UserControllerTest extends TestCase
@@ -17,11 +16,7 @@ class UserControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $token = JWT::encode(['user_uuid' => $user->uuid]);
-
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.$token,
-        ])->getJson('/api/v1/user');
+        $response = $this->authenticatedAs($user)->getJson('/api/v1/user');
 
         $response->assertStatus(200);
 
@@ -32,11 +27,8 @@ class UserControllerTest extends TestCase
     public function test_can_delete_user_account(): void
     {
         $user = User::factory()->create();
-        $token = JWT::encode(['user_uuid' => $user->uuid]);
 
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.$token,
-        ])->deleteJson('/api/v1/user');
+        $response = $this->authenticatedAs($user)->deleteJson('/api/v1/user');
 
         $response->assertNoContent();
 
@@ -47,11 +39,7 @@ class UserControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $token = JWT::encode(['user_uuid' => $user->uuid]);
-
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '.$token,
-        ])->putJson('/api/v1/user', [
+        $response = $this->authenticatedAs($user)->putJson('/api/v1/user', [
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'email' => $this->faker->email,

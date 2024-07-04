@@ -19,7 +19,7 @@ class LoggedinUserController extends Controller
         return response()->json([
             'success' => 1,
             'data' => [
-                'token' => JWT::encode(['user_uuid' => Auth::user()->uuid]),
+                'token' => Auth::user()->createToken(),
             ],
         ]);
     }

@@ -6,8 +6,8 @@ use App\Services\Auth\Facades\JWT;
 
 trait HasApiTokens
 {
-    public function createToken(): string
+    public function createToken(array $options = []): string
     {
-        return JWT::encode(['user_uuid' => $this->uuid]);
+        return JWT::encode($this, $options);
     }
 }
