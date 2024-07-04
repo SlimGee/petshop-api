@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Services\Auth\Concerns\HasApiTokens;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -60,5 +61,15 @@ class User extends Authenticatable
     public function uniqueIds(): array
     {
         return ['uuid'];
+    }
+
+    /**
+     * Get the orders for the user.
+     *
+     * @return HasMany<Order>
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }

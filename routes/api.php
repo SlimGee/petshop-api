@@ -5,10 +5,11 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetTokenController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\UserController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Main\PostController;
 use App\Http\Controllers\Main\PromotionController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -42,6 +43,9 @@ Route::prefix('v1')->group(function () {
 
         Route::apiResource('payments', PaymentController::class)->except('store');
         Route::post('/payments/create', [PaymentController::class, 'store'])->name('payments.store');
+
+        Route::apiResource('orders', OrderController::class)->except('store');
+        Route::post('/orders/create', [OrderController::class, 'store'])->name('orders.store');
     });
 
     Route::resource('categories', CategoryController::class)->only('show', 'index');
