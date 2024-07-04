@@ -22,7 +22,7 @@ class OrderFactory extends Factory
     {
         return [
             'products' => collect(range(1, 5))
-                ->map(fn() => [
+                ->map(fn () => [
                     'product' => Product::factory()->create()->uuid,
                     'quantity' => $this->faker->numberBetween(1, 10),
                 ])

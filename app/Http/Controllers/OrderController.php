@@ -45,7 +45,7 @@ class OrderController extends Controller
                 'amount' => $request
                     ->safe()
                     ->collect('products')
-                    ->map(fn($payload) => Product::where('uuid', $payload['product'])->first()->price * $payload['quantity'])
+                    ->map(fn ($payload) => Product::where('uuid', $payload['product'])->first()->price * $payload['quantity'])
                     ->sum(),
             ]);
 

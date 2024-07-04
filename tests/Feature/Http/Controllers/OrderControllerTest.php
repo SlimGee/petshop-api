@@ -72,7 +72,7 @@ class OrderControllerTest extends TestCase
             'user_id' => User::factory()->create()->id,
         ]);
 
-        $statuses->filter(fn($status) => $status->id !== $order->order_status_id);
+        $statuses->filter(fn ($status) => $status->id !== $order->order_status_id);
 
         $response = $this
             ->authenticated()

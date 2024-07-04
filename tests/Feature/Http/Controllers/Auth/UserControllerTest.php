@@ -20,7 +20,7 @@ class UserControllerTest extends TestCase
         $token = JWT::encode(['user_uuid' => $user->uuid]);
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ])->getJson('/api/v1/user');
 
         $response->assertStatus(200);
@@ -35,7 +35,7 @@ class UserControllerTest extends TestCase
         $token = JWT::encode(['user_uuid' => $user->uuid]);
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ])->deleteJson('/api/v1/user');
 
         $response->assertNoContent();
@@ -50,7 +50,7 @@ class UserControllerTest extends TestCase
         $token = JWT::encode(['user_uuid' => $user->uuid]);
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ])->putJson('/api/v1/user', [
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,

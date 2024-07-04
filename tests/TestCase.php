@@ -16,14 +16,14 @@ abstract class TestCase extends BaseTestCase
         $user = User::factory()->create();
 
         return $this->withHeaders([
-            'Authorization' => 'Bearer ' . $user->createToken(),
+            'Authorization' => 'Bearer '.$user->createToken(),
         ]);
     }
 
     public function authenticatedAs(User $user): self
     {
         return $this->withHeaders([
-            'Authorization' => 'Bearer ' . $user->createToken(),
+            'Authorization' => 'Bearer '.$user->createToken(),
         ]);
     }
 }
