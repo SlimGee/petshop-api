@@ -5,14 +5,15 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetTokenController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\UserController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Main\PostController;
 use App\Http\Controllers\Main\PromotionController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShipmentLocatorController;
 use App\Http\Controllers\UserOrderController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,8 +48,11 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('payments', PaymentController::class)->except('store');
         Route::post('/payments/create', [PaymentController::class, 'store'])->name('payments.store');
 
-        Route::apiResource('orders', OrderController::class)->except('store');
+        Route::apiResource('order', OrderController::class)->except('store', 'index');
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
         Route::post('/orders/create', [OrderController::class, 'store'])->name('orders.store');
+        Route::get('/orders/dashboard', [OrderController::class, 'index'])->name('orders.dashboard');
+        Route::get('/orders/shipment-locator', [ShipmentLocatorController::class, 'index'])->name('orders.shipment-locator');
     });
 
     Route::resource('categories', CategoryController::class)->only('show', 'index');

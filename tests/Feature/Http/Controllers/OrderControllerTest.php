@@ -38,7 +38,7 @@ class OrderControllerTest extends TestCase
             'user_id' => User::factory()->create()->id,
         ]);
 
-        $response = $this->authenticated()->get("/api/v1/orders/{$order->uuid}");
+        $response = $this->authenticated()->get("/api/v1/order/{$order->uuid}");
         $response->assertStatus(200);
         $this->assertEquals($order->uuid, $response->json('data.uuid'));
     }
@@ -58,7 +58,7 @@ class OrderControllerTest extends TestCase
             ->post('/api/v1/orders/create', $order->toArray());
         $response->assertStatus(201);
 
-        $this->assertEquals($order->products, $response->json('data.products'));
+        $this->assertEquals($order->products->toArray(), $response->json('data.products'));
         $this->assertEquals($count + 1, Order::count());
     }
 
@@ -72,11 +72,11 @@ class OrderControllerTest extends TestCase
             'user_id' => User::factory()->create()->id,
         ]);
 
-        $statuses->filter(fn ($status) => $status->id !== $order->order_status_id);
+        $statuses->filter(fn($status) => $status->id !== $order->order_status_id);
 
         $response = $this
             ->authenticated()
-            ->put("/api/v1/orders/{$order->uuid}", [
+            ->put("/api/v1/order/{$order->uuid}", [
                 ...$order->toArray(),
                 'order_status_id' => $statuses->random()->id,
             ]);
@@ -96,9 +96,26 @@ class OrderControllerTest extends TestCase
             'user_id' => User::factory()->create()->id,
         ]);
 
-        $response = $this->authenticated()->delete("/api/v1/orders/{$order->uuid}");
+        $response = $this->authenticated()->delete(route('order.destroy', $order));
         $response->assertStatus(204);
 
         $this->assertModelMissing($order);
+    }
+
+    public function test_can_list_from_shipment_locator_with_filters(): void
+    {
+        $this->artisan('db:seed OrderStatusSeeder');
+        Order::factory(20)->create([
+            'order_status_id' => OrderStatus::whereTitle('shipped')->first()->id,
+            'user_id' => User::factory()->create()->id,
+        ]);
+        $response = $this->authenticated()->getJson(route('orders.shipment-locator'));
+        $response->assertOk();
+
+        $response = $this->authenticated()->getJson(route('orders.shipment-locator', [
+            'filter' => ['placed_between' => '2021-01-01,2021-12-31'],
+        ]));
+
+        $this->assertCount(0, $response->json('data'));
     }
 }
