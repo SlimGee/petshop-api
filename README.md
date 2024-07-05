@@ -59,7 +59,7 @@ php artisan serve
 ```
 
 ## Documentation
-Assuming you have valet installed, you can access the documentation by visiting [https://petshop-api.test/api/swagger](https://petshop-api.test/api/swagger)
+Assuming you have valet installed, you can access the documentation by visiting [http://petshop-api.test/api/swagger](http://petshop-api.test/api/swagger)
 
 Or you can visit the `/api/swagger` route on your local server
 
