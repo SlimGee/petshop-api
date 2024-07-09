@@ -4,6 +4,7 @@ namespace App\Services\Auth;
 
 use App\Models\User;
 use App\Services\Auth\Facades\JWT;
+use App\Services\Auth\Models\Token;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -30,6 +31,10 @@ class ServiceProvider extends BaseServiceProvider
                     }
 
                     $payload = JWT::decode($token, true);
+
+                    Token::where('unique_id', $payload['jti'])
+                        ->first()
+                        ->update(['last_used_at' => now()]);
 
                     return User::where('uuid', $payload['user_uuid'])->firstOrFail();
                 } catch (\Throwable $e) {

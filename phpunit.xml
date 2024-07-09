@@ -4,9 +4,6 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
-    <extensions>
-    <bootstrap class="RonasIT\Support\AutoDoc\Tests\PhpUnitExtensions\SwaggerExtension"/>
-</extensions>
     <testsuites>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
