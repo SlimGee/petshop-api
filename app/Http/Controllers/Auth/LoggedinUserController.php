@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\LoggedIn;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Services\Auth\Facades\JWT;
@@ -15,6 +16,8 @@ class LoggedinUserController extends Controller
     public function store(LoginRequest $request): JsonResponse
     {
         $request->authenticate();
+
+        event(new LoggedIn(Auth::user()));
 
         return response()->json([
             'success' => 1,
